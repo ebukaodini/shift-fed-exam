@@ -19,7 +19,7 @@ export default class Ticket extends BaseModel {
 
   @column({
     prepare: (value: string[]) => JSON.stringify(value),
-    consume: (value: string) => value ? JSON.parse(value) : [],
+    consume: (value: string) => (value ? JSON.parse(value) : []),
   })
   declare labels: string[]
 
