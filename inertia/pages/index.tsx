@@ -22,23 +22,39 @@ interface AppProps {
   }
 }
 
-function TicketsList({ tickets }: { tickets: Ticket[] }) {
+function TicketsList({
+  tickets,
+  hiddenTickets,
+  onHide,
+}: {
+  tickets: Ticket[]
+  hiddenTickets: string[]
+  onHide: (ticketId: string) => void
+}) {
   return (
     <ul className="space-y-4">
-      {tickets.map((ticket) => (
-        <li
-          key={ticket.id}
-          className="bg-white border border-sand-7 rounded-lg p-6 hover:border-sand-8 hover:shadow-sm transition duration-200"
-        >
-          <h5 className="text-lg font-semibold text-sand-12 mb-2">{ticket.title}</h5>
-          <p className="text-sand-11 mb-4">{ticket.content}</p>
-          <footer>
-            <div className="text-sm text-sand-10">
-              By {ticket.userEmail} | {formatDate(ticket.creationTime)}
-            </div>
-          </footer>
-        </li>
-      ))}
+      {tickets
+        .filter((t) => !hiddenTickets.includes(t.id))
+        .map((ticket) => (
+          <li
+            key={ticket.id}
+            className="bg-white border border-sand-7 rounded-lg p-6 hover:border-sand-8 hover:shadow-sm transition duration-200 relative group"
+          >
+            <button
+              className="absolute top-2 right-3 text-sm text-sand-11 hover:text-sand-12 hidden group-hover:block"
+              onClick={() => onHide(ticket.id)}
+            >
+              Hide
+            </button>
+            <h5 className="text-lg font-semibold text-sand-12 mb-2">{ticket.title}</h5>
+            <p className="text-sand-11 mb-4">{ticket.content}</p>
+            <footer>
+              <div className="text-sm text-sand-10">
+                By {ticket.userEmail} | {formatDate(ticket.creationTime)}
+              </div>
+            </footer>
+          </li>
+        ))}
     </ul>
   )
 }
@@ -55,6 +71,15 @@ function EmptyState({ hasSearch }: { hasSearch: boolean }) {
 
 export default function App({ tickets }: AppProps) {
   const [search, setSearch] = useState('')
+  const [hiddenTickets, setHiddenTickets] = useState<string[]>([])
+
+  const handleHideTicket = useCallback((ticketId: string) => {
+    setHiddenTickets((prev) => [...prev, ticketId])
+  }, [])
+
+  const handleRestoreTickets = useCallback(() => {
+    setHiddenTickets([])
+  }, [])
 
   const handleSearch = useCallback(function handleSearch(value: string) {
     setSearch(value)
@@ -87,11 +112,25 @@ export default function App({ tickets }: AppProps) {
             {tickets && (
               <div className="text-sm text-sand-11 mb-4">
                 Showing {ticketData.length} of {tickets.meta.total} issues
+                {hiddenTickets.length > 0 && (
+                  <span className="ml-1 italic">
+                    ({hiddenTickets.length} hidden {hiddenTickets.length > 1 ? 'tickets' : 'ticket'}{' '}
+                    -{' '}
+                    <button onClick={handleRestoreTickets} className="italic !text-blue-600">
+                      restore
+                    </button>
+                    )
+                  </span>
+                )}
               </div>
             )}
 
             {ticketData.length > 0 ? (
-              <TicketsList tickets={ticketData} />
+              <TicketsList
+                tickets={ticketData}
+                onHide={handleHideTicket}
+                hiddenTickets={hiddenTickets}
+              />
             ) : (
               <EmptyState hasSearch={Boolean(search)} />
             )}
