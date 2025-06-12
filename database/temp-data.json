@@ -1,7 +1,7 @@
 [
   {
     "title": "SQL Injection vulnerability in login form",
-    "content": "Our login form appears to be vulnerable to SQL injection attacks. When I enter ' OR '1'='1 in the username field, I'm able to bypass authentication. This is a critical security flaw that needs immediate attention.",
+    "content": "Our login form appears to be vulnerable to SQL injection attacks. When I enter ' OR '1'='1 in the username field, I'm able to bypass authentication. This is a critical security flaw that needs immediate attention; Our login form appears to be vulnerable to SQL injection attacks. When I enter ' OR '1'='1 in the username field, I'm able to bypass authentication. This is a critical security flaw that needs immediate attention; Our login form appears to be vulnerable to SQL injection attacks. When I enter ' OR '1'='1 in the username field, I'm able to bypass authentication. This is a critical security flaw that needs immediate attention.",
     "userEmail": "security@techcorp.com",
     "labels": [
       "SQL Injection",

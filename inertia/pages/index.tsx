@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useRef, useLayoutEffect } from 'react'
 import { Head } from '@inertiajs/react'
 
 export type Ticket = {
@@ -20,6 +20,45 @@ interface AppProps {
       lastPage: number
     }
   }
+}
+
+function TicketContent({ content }: { content: string }) {
+  const [expanded, setExpanded] = useState(false)
+  const [showButton, setShowButton] = useState(false)
+  const contentRef = useRef<HTMLParagraphElement>(null)
+
+  useLayoutEffect(() => {
+    function updateShowButton() {
+      const el = contentRef.current
+      if (el) {
+        const lineHeight = parseFloat(getComputedStyle(el).lineHeight)
+        const maxHeight = lineHeight * 3
+        setShowButton(el.scrollHeight > maxHeight + 1)
+      }
+    }
+
+    updateShowButton()
+    window.addEventListener('resize', updateShowButton)
+    return () => window.removeEventListener('resize', updateShowButton)
+  }, [content])
+
+  const toggleExpand = () => setExpanded((prev) => !prev)
+
+  return (
+    <div className="mb-4">
+      <p
+        ref={contentRef}
+        className={`text-sand-11 text-base transition-all ${expanded ? '' : 'line-clamp-3'}`}
+      >
+        {content}
+      </p>
+      {showButton && (
+        <button onClick={toggleExpand} className="text-sm text-blue-600">
+          {expanded ? 'See less' : 'See more'}
+        </button>
+      )}
+    </div>
+  )
 }
 
 function TicketsList({
@@ -47,7 +86,7 @@ function TicketsList({
               Hide
             </button>
             <h5 className="text-lg font-semibold text-sand-12 mb-2">{ticket.title}</h5>
-            <p className="text-sand-11 mb-4">{ticket.content}</p>
+            <TicketContent content={ticket.content} />
             <footer className="w-full flex flex-col sm:flex-row gap-y-2 sm:gap-0 justify-start items-start sm:justify-between sm:items-center">
               <div className="text-sm text-sand-10">
                 By {ticket.userEmail} | {formatDate(ticket.creationTime)}
