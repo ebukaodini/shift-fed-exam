@@ -48,10 +48,22 @@ function TicketsList({
             </button>
             <h5 className="text-lg font-semibold text-sand-12 mb-2">{ticket.title}</h5>
             <p className="text-sand-11 mb-4">{ticket.content}</p>
-            <footer>
+            <footer className="w-full flex flex-col sm:flex-row gap-y-2 sm:gap-0 justify-start items-start sm:justify-between sm:items-center">
               <div className="text-sm text-sand-10">
                 By {ticket.userEmail} | {formatDate(ticket.creationTime)}
               </div>
+              {ticket.labels && ticket.labels.length > 0 && (
+                <div className="w-full sm:w-fit overflow-auto flex space-x-2">
+                  {ticket.labels.map((label) => (
+                    <div
+                      key={label}
+                      className="border border-blue-200 rounded-md bg-blue-100 text-sand-11 text-xs px-2 py-1 font-medium whitespace-nowrap"
+                    >
+                      {label}
+                    </div>
+                  ))}
+                </div>
+              )}
             </footer>
           </li>
         ))}

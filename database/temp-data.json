@@ -3,7 +3,15 @@
     "title": "SQL Injection vulnerability in login form",
     "content": "Our login form appears to be vulnerable to SQL injection attacks. When I enter ' OR '1'='1 in the username field, I'm able to bypass authentication. This is a critical security flaw that needs immediate attention.",
     "userEmail": "security@techcorp.com",
-    "labels": ["SQL Injection", "Authentication", "Critical"],
+    "labels": [
+      "SQL Injection",
+      "Authentication",
+      "Critical",
+      "High Priority",
+      "Database",
+      "Web Application",
+      "Vulnerability"
+    ],
     "creationTime": 1749551883000,
     "id": "2c5812aa-f83c-48ca-901e-e3481c85f13d"
   },
