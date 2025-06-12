@@ -120,6 +120,38 @@ function EmptyState({ hasSearch }: { hasSearch: boolean }) {
   )
 }
 
+function Pagination({
+  currentPage,
+  lastPage,
+  onPageChange,
+}: {
+  currentPage: number
+  lastPage: number
+  onPageChange: (page: number) => void
+}) {
+  return (
+    <div className="flex justify-between items-center sm:justify-center sm:items-center gap-4 mt-8">
+      <button
+        disabled={currentPage <= 1}
+        onClick={() => onPageChange(currentPage - 1)}
+        className="px-3 py-1 text-sm bg-sand-3 hover:bg-sand-4 text-sand-12 rounded-md disabled:opacity-50"
+      >
+        Previous
+      </button>
+      <span className="text-sand-11 text-sm">
+        Page {currentPage} of {lastPage}
+      </span>
+      <button
+        disabled={currentPage >= lastPage}
+        onClick={() => onPageChange(currentPage + 1)}
+        className="px-3 py-1 text-sm bg-sand-3 hover:bg-sand-4 text-sand-12 rounded-md disabled:opacity-50"
+      >
+        Next
+      </button>
+    </div>
+  )
+}
+
 export default function App({ tickets }: AppProps) {
   const [search, setSearch] = useState('')
   const [hiddenTickets, setHiddenTickets] = useState<string[]>([])
@@ -141,6 +173,14 @@ export default function App({ tickets }: AppProps) {
     setSearch(value)
     router.get('/', value ? { search: value.trim() } : {}, { preserveState: true, replace: true })
   }, [])
+
+  const goToPage = (page: number) => {
+    router.get(
+      '/',
+      { ...(search && { search: search.trim() }), page },
+      { preserveState: true, replace: true }
+    )
+  }
 
   const ticketData = tickets?.data || []
 
@@ -180,11 +220,21 @@ export default function App({ tickets }: AppProps) {
             )}
 
             {ticketData.length > 0 ? (
-              <TicketsList
-                tickets={ticketData}
-                onHide={handleHideTicket}
-                hiddenTickets={hiddenTickets}
-              />
+              <div className="space-y-6">
+                <TicketsList
+                  tickets={ticketData}
+                  onHide={handleHideTicket}
+                  hiddenTickets={hiddenTickets}
+                />
+
+                {tickets.meta.total > tickets.meta.perPage && (
+                  <Pagination
+                    currentPage={tickets.meta.currentPage}
+                    lastPage={tickets.meta.lastPage}
+                    onPageChange={goToPage}
+                  />
+                )}
+              </div>
             ) : (
               <EmptyState hasSearch={Boolean(search)} />
             )}
