@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef, useLayoutEffect } from 'react'
+import { useState, useCallback, useRef, useLayoutEffect, useEffect } from 'react'
 import { Head, router } from '@inertiajs/react'
 
 export type Ticket = {
@@ -70,11 +70,12 @@ function TicketsList({
   hiddenTickets: string[]
   onHide: (ticketId: string) => void
 }) {
+  const filteredTickets = tickets.filter((t) => !hiddenTickets.includes(t.id))
+
   return (
     <ul className="space-y-4">
-      {tickets
-        .filter((t) => !hiddenTickets.includes(t.id))
-        .map((ticket) => (
+      {filteredTickets.length > 0 ? (
+        filteredTickets.map((ticket) => (
           <li
             key={ticket.id}
             className="bg-white border border-sand-7 rounded-lg p-6 hover:border-sand-8 hover:shadow-sm transition duration-200 relative group"
@@ -105,16 +106,29 @@ function TicketsList({
               )}
             </footer>
           </li>
-        ))}
+        ))
+      ) : (
+        <EmptyState hasHiddenTickets={hiddenTickets.length > 0} />
+      )}
     </ul>
   )
 }
 
-function EmptyState({ hasSearch }: { hasSearch: boolean }) {
+function EmptyState({
+  hasSearch,
+  hasHiddenTickets,
+}: {
+  hasSearch?: boolean
+  hasHiddenTickets?: boolean
+}) {
   return (
     <div className="text-center py-12">
       <div className="text-lg text-sand-11">
-        {hasSearch ? 'No issues found matching your search.' : 'No security issues found.'}
+        {hasSearch
+          ? 'No issues found matching your search.'
+          : hasHiddenTickets
+            ? 'All issues are hidden.'
+            : 'No security issues found.'}
       </div>
     </div>
   )
@@ -163,6 +177,11 @@ export default function App({ tickets }: AppProps) {
   const handleRestoreTickets = useCallback(() => {
     setHiddenTickets([])
   }, [])
+
+  useEffect(() => {
+    // Reset hidden tickets when search changes
+    handleRestoreTickets()
+  }, [search])
 
   useLayoutEffect(() => {
     const searchParam = new URLSearchParams(window.location.search).get('search') || ''
