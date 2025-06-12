@@ -1,5 +1,5 @@
 import { useState, useCallback, useRef, useLayoutEffect } from 'react'
-import { Head } from '@inertiajs/react'
+import { Head, router } from '@inertiajs/react'
 
 export type Ticket = {
   id: string
@@ -132,14 +132,17 @@ export default function App({ tickets }: AppProps) {
     setHiddenTickets([])
   }, [])
 
-  const handleSearch = useCallback(function handleSearch(value: string) {
-    setSearch(value)
+  useLayoutEffect(() => {
+    const searchParam = new URLSearchParams(window.location.search).get('search') || ''
+    setSearch(searchParam.trim())
   }, [])
 
-  const ticketData =
-    tickets?.data.filter((t) =>
-      (t.title.toLowerCase() + t.content.toLowerCase()).includes(search.toLowerCase())
-    ) || []
+  const handleSearch = useCallback(function handleSearch(value: string) {
+    setSearch(value)
+    router.get('/', value ? { search: value.trim() } : {}, { preserveState: true, replace: true })
+  }, [])
+
+  const ticketData = tickets?.data || []
 
   return (
     <>
