@@ -201,6 +201,13 @@ export default function App({ tickets }: AppProps) {
     )
   }
 
+  const handleExport = () => {
+    const params = new URLSearchParams()
+    if (search) params.append('search', search)
+    if (hiddenTickets) params.append('hidden', hiddenTickets.join(','))
+    window.open(`/tickets/export/csv?${params.toString()}`, '_blank')
+  }
+
   const ticketData = tickets?.data || []
 
   return (
@@ -223,18 +230,27 @@ export default function App({ tickets }: AppProps) {
             </header>
 
             {tickets && (
-              <div className="text-sm text-sand-11 mb-4">
-                Showing {ticketData.length} of {tickets.meta.total} issues
-                {hiddenTickets.length > 0 && (
-                  <span className="ml-1 italic">
-                    ({hiddenTickets.length} hidden {hiddenTickets.length > 1 ? 'tickets' : 'ticket'}{' '}
-                    -{' '}
-                    <button onClick={handleRestoreTickets} className="italic !text-blue-600">
-                      restore
-                    </button>
-                    )
-                  </span>
-                )}
+              <div className="mb-4 w-full flex flex-col sm:flex-row justify-start items-start sm:justify-between sm:items-center">
+                <div className="text-sm text-sand-11">
+                  Showing {ticketData.length} of {tickets.meta.total} issues
+                  {hiddenTickets.length > 0 && (
+                    <span className="ml-1 italic">
+                      ({hiddenTickets.length} hidden{' '}
+                      {hiddenTickets.length > 1 ? 'tickets' : 'ticket'} -{' '}
+                      <button onClick={handleRestoreTickets} className="italic !text-blue-600">
+                        restore
+                      </button>
+                      )
+                    </span>
+                  )}
+                </div>
+                <button
+                  disabled={tickets.meta.total == 0}
+                  onClick={() => handleExport()}
+                  className="px-3 py-1 text-sm bg-sand-3 hover:bg-sand-4 text-sand-12 rounded-md disabled:opacity-50"
+                >
+                  Export CSV
+                </button>
               </div>
             )}
 

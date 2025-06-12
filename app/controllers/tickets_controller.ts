@@ -1,12 +1,11 @@
 import type { HttpContext } from '@adonisjs/core/http'
 import Ticket from '#models/ticket'
 import { parse } from 'date-fns'
+import { stringify } from 'csv-stringify/sync'
+import { ModelQueryBuilderContract } from '@adonisjs/lucid/types/model'
 
 export default class TicketsController {
-  async index({ request, inertia }: HttpContext) {
-    const page = request.input('page', 1)
-    const pageSize = 20
-    const search = request.input('search', '') as string
+  private applyFilter(search: string, query: ModelQueryBuilderContract<typeof Ticket, Ticket>) {
     let searchBeforeDate: number | undefined
     let searchAfterDate: number | undefined
     let reporterEmail: string | undefined
@@ -44,8 +43,6 @@ export default class TicketsController {
       searchValue = search.trim().toLowerCase()
     }
 
-    let query = Ticket.query()
-
     if (searchValue) {
       query = query.where((builder) => {
         builder
@@ -53,22 +50,64 @@ export default class TicketsController {
           .orWhereRaw('LOWER(content) LIKE ?', [`%${searchValue}%`])
       })
     }
-
     if (searchBeforeDate) {
       query = query.where('creation_time', '<', searchBeforeDate)
     }
     if (searchAfterDate) {
       query = query.where('creation_time', '>', searchAfterDate)
     }
-
     if (reporterEmail) {
       query = query.whereRaw('LOWER(user_email) = ?', [reporterEmail])
     }
 
+    return query
+  }
+
+  async index({ request, inertia }: HttpContext) {
+    const page = request.input('page', 1)
+    const pageSize = 20
+    const search = request.input('search', '') as string
+    let query = Ticket.query()
+
+    query = this.applyFilter(search, query)
     const tickets = await query.orderBy('creation_time', 'desc').paginate(page, pageSize)
 
     return inertia.render('index', {
       tickets: tickets.toJSON(),
     })
+  }
+
+  async exportCsv({ request, response }: HttpContext) {
+    const search = request.input('search', '') as string
+    const hidden = request.input('hidden', '') as string
+    let query = Ticket.query()
+
+    query = this.applyFilter(search, query)
+    let tickets = await query.orderBy('creation_time', 'desc')
+
+    // Filter out hidden issues
+    if (hidden.length > 0) {
+      const hiddenTicketIds = hidden.split(',')
+      tickets = tickets.filter((t) => !hiddenTicketIds.includes(t.id))
+    }
+
+    // Prepare CSV data
+    const records = tickets.map((t) => ({
+      id: t.id,
+      title: t.title,
+      content: t.content,
+      userEmail: t.userEmail,
+      labels: (t.labels || []).join(', '),
+      creationTime: new Date(t.creationTime).toISOString(),
+    }))
+
+    const csv = stringify(records, { header: true })
+
+    response.header('Content-Type', 'text/csv')
+    response.header(
+      'Content-Disposition',
+      `attachment; filename="security-issues${search && '-' + search.replaceAll(' ', '-')}.csv"`
+    )
+    return response.send(csv)
   }
 }
