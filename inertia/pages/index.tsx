@@ -61,6 +61,25 @@ function TicketContent({ content }: { content: string }) {
   )
 }
 
+function TicketLabels({ labels }: { labels: string[] }) {
+  return (
+    <>
+      {labels.length > 0 && (
+        <div className="w-full sm:w-fit overflow-auto flex space-x-2">
+          {labels.map((label) => (
+            <div
+              key={label}
+              className="border border-blue-200 rounded-md bg-blue-100 text-sand-11 text-xs px-2 py-1 font-medium whitespace-nowrap"
+            >
+              {label}
+            </div>
+          ))}
+        </div>
+      )}
+    </>
+  )
+}
+
 function TicketsList({
   tickets,
   hiddenTickets,
@@ -92,18 +111,8 @@ function TicketsList({
               <div className="text-sm text-sand-10">
                 By {ticket.userEmail} | {formatDate(ticket.creationTime)}
               </div>
-              {ticket.labels && ticket.labels.length > 0 && (
-                <div className="w-full sm:w-fit overflow-auto flex space-x-2">
-                  {ticket.labels.map((label) => (
-                    <div
-                      key={label}
-                      className="border border-blue-200 rounded-md bg-blue-100 text-sand-11 text-xs px-2 py-1 font-medium whitespace-nowrap"
-                    >
-                      {label}
-                    </div>
-                  ))}
-                </div>
-              )}
+
+              <TicketLabels labels={ticket.labels!} />
             </footer>
           </li>
         ))
