@@ -219,6 +219,7 @@ export default function App({ tickets }: AppProps) {
 
   const ticketData = tickets?.data || []
   const paginationInfo = calculatePagination(tickets.meta)
+  const hiddenTicketsInfo = `${hiddenTickets.length} hidden ${hiddenTickets.length > 1 ? 'tickets' : 'ticket'} - `
 
   return (
     <>
@@ -240,13 +241,12 @@ export default function App({ tickets }: AppProps) {
             </header>
 
             {tickets && (
-              <div className="mb-4 w-full flex flex-col sm:flex-row justify-start items-start sm:justify-between sm:items-center">
+              <div className="mb-4 w-full flex flex-col sm:flex-row justify-start items-start sm:justify-between sm:items-center space-y-2">
                 <div className="text-sm text-sand-11">
                   {paginationInfo}
                   {hiddenTickets.length > 0 && (
                     <span className="ml-1 italic">
-                      ({hiddenTickets.length} hidden{' '}
-                      {hiddenTickets.length > 1 ? 'tickets' : 'ticket'} -{' '}
+                      ({hiddenTicketsInfo}
                       <button onClick={handleRestoreTickets} className="italic !text-blue-600">
                         restore
                       </button>
