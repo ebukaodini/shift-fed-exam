@@ -218,6 +218,7 @@ export default function App({ tickets }: AppProps) {
   }
 
   const ticketData = tickets?.data || []
+  const paginationInfo = calculatePagination(tickets.meta)
 
   return (
     <>
@@ -241,7 +242,7 @@ export default function App({ tickets }: AppProps) {
             {tickets && (
               <div className="mb-4 w-full flex flex-col sm:flex-row justify-start items-start sm:justify-between sm:items-center">
                 <div className="text-sm text-sand-11">
-                  Showing {ticketData.length} of {tickets.meta.total} issues
+                  {paginationInfo}
                   {hiddenTickets.length > 0 && (
                     <span className="ml-1 italic">
                       ({hiddenTickets.length} hidden{' '}
@@ -294,4 +295,13 @@ function formatDate(unixTimestemp: number) {
     .toISOString()
     .replace('T', ' ')
     .replace(/\.\d{3}Z$/, '')
+}
+
+function calculatePagination({ currentPage, perPage, total }: AppProps['tickets']['meta']) {
+  const startItem = (currentPage - 1) * perPage + 1
+  const endItem = Math.min(currentPage * perPage, total)
+
+  return total < 20
+    ? `Showing ${total} issues`
+    : `Showing ${startItem} - ${endItem} of ${total} issues`
 }
