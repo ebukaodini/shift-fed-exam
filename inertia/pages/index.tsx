@@ -302,6 +302,6 @@ function calculatePagination({ currentPage, perPage, total }: AppProps['tickets'
   const endItem = Math.min(currentPage * perPage, total)
 
   return total < 20
-    ? `Showing ${total} issues`
+    ? `Showing ${total} ${total > 1 ? 'issues' : 'issue'}`
     : `Showing ${startItem} - ${endItem} of ${total} issues`
 }
