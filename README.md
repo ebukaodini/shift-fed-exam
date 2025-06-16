@@ -16,8 +16,11 @@ The task's main purpose is to test your ability to learn new topics and deliver 
 1. Go [here](https://github.com/new/import) and import this repository into your account. Make sure to select the **private** option
 2. [Clone](https://try.github.io/) your new repository to your computer
 3. Install dependencies: `npm install`
-4. Seed the database: `node ace migration:fresh && node ace db:seed`
-5. Start development server: `npm run dev`
+4. Setup env file: `cp .env.example .env`
+5. Generate app key: `node ace generate:key`
+6. Create database path: `mkdir tmp`
+7. Seed the database: `node ace migration:fresh && node ace db:seed`
+8. Start development server: `npm run dev`
 
 You should now have the application running at http://localhost:3333
 
