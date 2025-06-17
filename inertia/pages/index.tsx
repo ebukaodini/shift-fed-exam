@@ -175,6 +175,53 @@ function Pagination({
   )
 }
 
+function Search({
+  search,
+  handleSearch,
+}: {
+  search: string
+  handleSearch: (value: string) => void
+}) {
+  const [showHint, toggleHint] = useState(false)
+
+  return (
+    <div className="relative flex flex-col" onBlur={() => toggleHint(false)}>
+      <input
+        type="search"
+        placeholder="Search issues..."
+        className="w-full max-w-md px-4 py-2 border border-sand-7 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+        onChange={(e) => handleSearch(e.target.value)}
+        onFocus={() => toggleHint(true)}
+        value={search}
+      />
+
+      {showHint && (
+        <div className="absolute top-full mt-0.5 px-4 py-2 flex flex-col gap-1 text-xs text-sand-9 w-full max-w-md z-20 bg-white rounded-lg ring-2 ring-primary">
+          <span>Search Filters:</span>
+          <div className="flex flex-col sm:flex-row justify-start sm:justify-between sm:items-center">
+            <code className="w-fit border border-blue-200 rounded-sm bg-blue-100 text-sand-11 text-xs">
+              after:27/09/2019 xss
+            </code>
+            <span>Issues created after date</span>
+          </div>
+          <div className="flex flex-col sm:flex-row justify-start sm:justify-between sm:items-center">
+            <code className="w-fit border border-blue-200 rounded-sm bg-blue-100 text-sand-11 text-xs">
+              before:27/09/2019 xss
+            </code>
+            <span>Issues created before date</span>
+          </div>
+          <div className="flex flex-col sm:flex-row justify-start sm:justify-between sm:items-center">
+            <code className="w-fit border border-blue-200 rounded-sm bg-blue-100 text-sand-11 text-xs">
+              reporter:sec@test.com xss
+            </code>
+            <span>Issues created by reporter</span>
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
 export default function App({ tickets }: AppProps) {
   const [search, setSearch] = useState('')
   const [hiddenTickets, setHiddenTickets] = useState<string[]>([])
@@ -230,14 +277,8 @@ export default function App({ tickets }: AppProps) {
           <main>
             <h1 className="text-3xl font-bold text-sand-12 mb-8">Security Issues List</h1>
 
-            <header className="mb-6">
-              <input
-                type="search"
-                placeholder="Search issues..."
-                className="w-full max-w-md px-4 py-2 border border-sand-7 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                onChange={(e) => handleSearch(e.target.value)}
-                value={search}
-              />
+            <header className="mb-6 space-y-2">
+              <Search search={search} handleSearch={handleSearch} />
             </header>
 
             {tickets && (
