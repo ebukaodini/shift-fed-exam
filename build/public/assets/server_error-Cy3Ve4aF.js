@@ -1,1 +1,0 @@
-import{j as r}from"./app-CcI4rQ-v.js";function n(e){return r.jsx(r.Fragment,{children:r.jsxs("div",{className:"container",children:[r.jsx("div",{className:"title",children:"Server Error"}),r.jsx("span",{children:e.error.message})]})})}export{n as default};
