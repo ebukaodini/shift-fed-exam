@@ -1,0 +1,42 @@
+{
+  "_index-Dui7Gh32.js": {
+    "file": "index-Dui7Gh32.js",
+    "name": "index",
+    "isDynamicEntry": true
+  },
+  "_not_found-Djv2od_e.js": {
+    "file": "not_found-Djv2od_e.js",
+    "name": "not_found",
+    "isDynamicEntry": true
+  },
+  "_server_error-Cgc8nwHe.js": {
+    "file": "server_error-Cgc8nwHe.js",
+    "name": "server_error",
+    "isDynamicEntry": true
+  },
+  "inertia/app/app.tsx": {
+    "file": "app.js",
+    "name": "app",
+    "src": "inertia/app/app.tsx",
+    "isEntry": true,
+    "dynamicImports": [
+      "_not_found-Djv2od_e.js",
+      "_server_error-Cgc8nwHe.js",
+      "_index-Dui7Gh32.js"
+    ],
+    "css": [
+      "app-V1pZY7xQ.css"
+    ]
+  },
+  "inertia/app/ssr.tsx": {
+    "file": "ssr.js",
+    "name": "ssr",
+    "src": "inertia/app/ssr.tsx",
+    "isEntry": true,
+    "imports": [
+      "_not_found-Djv2od_e.js",
+      "_server_error-Cgc8nwHe.js",
+      "_index-Dui7Gh32.js"
+    ]
+  }
+}

@@ -1,0 +1,1402 @@
+[
+    {
+        "title": "SQL Injection vulnerability in login form",
+        "content": "Our login form appears to be vulnerable to SQL injection attacks. When I enter ' OR '1'='1 in the username field, I'm able to bypass authentication. This is a critical security flaw that needs immediate attention; Our login form appears to be vulnerable to SQL injection attacks. When I enter ' OR '1'='1 in the username field, I'm able to bypass authentication. This is a critical security flaw that needs immediate attention; Our login form appears to be vulnerable to SQL injection attacks. When I enter ' OR '1'='1 in the username field, I'm able to bypass authentication. This is a critical security flaw that needs immediate attention.",
+        "userEmail": "security@techcorp.com",
+        "labels": [
+            "SQL Injection",
+            "Authentication",
+            "Critical",
+            "High Priority",
+            "Database",
+            "Web Application",
+            "Vulnerability"
+        ],
+        "creationTime": 1749551883000,
+        "id": "2c5812aa-f83c-48ca-901e-e3481c85f13d"
+    },
+    {
+        "title": "Cross-Site Scripting (XSS) in comment section",
+        "content": "I discovered that our comment section allows execution of JavaScript code. When users submit comments containing <script> tags, the code executes on other users' browsers. This could lead to session hijacking.",
+        "userEmail": "researcher@cybersec.org",
+        "labels": ["XSS", "Client-side", "High Priority"],
+        "creationTime": 1749540752000,
+        "id": "de1f29ca-3dfe-45b4-94df-d694dd6b0f7e"
+    },
+    {
+        "title": "Weak password policy implementation",
+        "content": "The current password policy allows passwords as simple as '123456'. We need to enforce stronger password requirements including minimum length, special characters, and complexity rules.",
+        "userEmail": "admin@safebank.com",
+        "labels": ["Password Security", "Policy"],
+        "creationTime": 1749512051000,
+        "id": "0bd254a0-25d1-43ce-b4f4-8913f8a34ce3"
+    },
+    {
+        "title": "CSRF token missing in form submissions",
+        "content": "Several forms on our application don't include CSRF tokens, making them vulnerable to cross-site request forgery attacks. This affects user account settings and payment forms.",
+        "userEmail": "developer@webstudio.net",
+        "labels": ["CSRF", "Forms", "Security"],
+        "creationTime": 1749536775000,
+        "id": "810375a4-0810-4dbf-8bfd-13d2b04a90a7"
+    },
+    {
+        "title": "Insecure direct object references in API",
+        "content": "The API endpoint /api/users/{id} doesn't validate if the requesting user has permission to access the specified user ID. This allows unauthorized access to other users' data.",
+        "userEmail": "pentester@redsec.com",
+        "labels": ["IDOR", "API Security", "Authorization"],
+        "creationTime": 1749467959000,
+        "id": "ebb73ea3-064a-422a-b518-207dd48208b5"
+    },
+    {
+        "title": "Session fixation vulnerability detected",
+        "content": "The application doesn't regenerate session IDs after successful login, making it vulnerable to session fixation attacks. An attacker could potentially hijack user sessions.",
+        "userEmail": "security.audit@corp.com",
+        "labels": ["Session Management", "Authentication"],
+        "creationTime": 1749474473000,
+        "id": "2412ac56-82cc-48d5-85f7-89e4248fe721"
+    },
+    {
+        "title": "Sensitive data exposure in error messages",
+        "content": "Database error messages are being displayed to end users, revealing sensitive information about our database structure and potentially exposing internal system details.",
+        "userEmail": "qa@techsolutions.com",
+        "labels": ["Information Disclosure", "Error Handling"],
+        "creationTime": 1749436833000,
+        "id": "ddef930e-6acf-434a-97ed-b8d13e91dc96"
+    },
+    {
+        "title": "Missing HTTP security headers",
+        "content": "The application lacks important security headers like X-Frame-Options, X-XSS-Protection, and Content-Security-Policy, making it vulnerable to various client-side attacks.",
+        "userEmail": "devops@cloudtech.io",
+        "labels": ["HTTP Headers", "Client Security"],
+        "creationTime": 1749499285000,
+        "id": "094d9a43-a7fb-4bdd-be3f-ef6abb20b6a0"
+    },
+    {
+        "title": "Unencrypted sensitive data in database",
+        "content": "User passwords are stored in plain text in the database. This is a major security risk. We need to implement proper password hashing using bcrypt or similar algorithms.",
+        "userEmail": "dba@financorp.com",
+        "labels": ["Data Encryption", "Database Security", "Critical"],
+        "creationTime": 1749473187000,
+        "id": "b4519fcb-a376-4149-806e-bbdd160880c8"
+    },
+    {
+        "title": "Broken access control in admin panel",
+        "content": "Regular users can access admin functionality by directly navigating to admin URLs. The access control mechanism is not properly implemented on the server side.",
+        "userEmail": "security@ecommerce.com",
+        "labels": ["Access Control", "Authorization", "Admin Panel"],
+        "creationTime": 1749417315000,
+        "id": "f41f4cea-bc06-4143-921c-9f7ee4856979"
+    },
+    {
+        "title": "API rate limiting not implemented",
+        "content": "Our API endpoints don't have rate limiting, making them vulnerable to brute force attacks and potential DDoS. We need to implement proper throttling mechanisms.",
+        "userEmail": "backend@apiservice.com",
+        "labels": ["Rate Limiting", "API Security", "DDoS Protection"],
+        "creationTime": 1749462283000,
+        "id": "1fd114ad-f766-4740-bb39-0859b336175c"
+    },
+    {
+        "title": "Insecure file upload functionality",
+        "content": "The file upload feature doesn't validate file types or scan for malware. Users can upload executable files that could compromise the server.",
+        "userEmail": "security@filehost.com",
+        "labels": ["File Upload", "Malware", "Server Security"],
+        "creationTime": 1749475609000,
+        "id": "c65161f7-e7c3-46dd-9d6b-00fb08ac89e9"
+    },
+    {
+        "title": "JWT tokens without expiration",
+        "content": "JWT tokens are being issued without expiration times, meaning they remain valid indefinitely. This poses a significant security risk if tokens are compromised.",
+        "userEmail": "auth@mobileeapp.com",
+        "labels": ["JWT", "Token Security", "Authentication"],
+        "creationTime": 1749346407000,
+        "id": "eaba498f-349a-4807-aeca-46b0b265469c"
+    },
+    {
+        "title": "Directory traversal vulnerability",
+        "content": "The file download endpoint is vulnerable to directory traversal attacks. Users can access system files by manipulating the file path parameter with '../' sequences.",
+        "userEmail": "hacker@whitehats.org",
+        "labels": ["Directory Traversal", "File System", "Path Manipulation"],
+        "creationTime": 1749339879000,
+        "id": "51c61bb6-4926-4609-a22c-7ba1a42ba1e2"
+    },
+    {
+        "title": "Unvalidated redirects and forwards",
+        "content": "The application accepts arbitrary redirect URLs without validation, which could be exploited for phishing attacks by redirecting users to malicious sites.",
+        "userEmail": "phishing@researcher.com",
+        "labels": ["Open Redirect", "Phishing", "URL Validation"],
+        "creationTime": 1749289509000,
+        "id": "1b86dfb9-fcd6-4536-ab3c-3fb0729542ba"
+    },
+    {
+        "title": "Insecure cryptographic storage",
+        "content": "Credit card numbers are encrypted using a weak algorithm (MD5) which is easily reversible. We need to implement proper encryption standards like AES-256.",
+        "userEmail": "compliance@retailer.com",
+        "labels": ["Cryptography", "PCI Compliance", "Data Protection"],
+        "creationTime": 1749455553000,
+        "id": "fb25c94f-c790-4750-9cee-9bbcd3ddda2f"
+    },
+    {
+        "title": "Privilege escalation vulnerability",
+        "content": "Users can escalate their privileges by modifying role parameters in HTTP requests. The server doesn't properly validate user permissions before granting access.",
+        "userEmail": "pentester@cybersec.com",
+        "labels": ["Privilege Escalation", "Authorization", "Parameter Manipulation"],
+        "creationTime": 1749411947000,
+        "id": "ec76beca-f94a-4abf-bd25-b37e4c5aa6be"
+    },
+    {
+        "title": "Missing input validation on API endpoints",
+        "content": "Several API endpoints don't validate input parameters, leading to potential injection attacks and system instability. All user inputs should be sanitized and validated.",
+        "userEmail": "api@developer.com",
+        "labels": ["Input Validation", "API Security", "Injection"],
+        "creationTime": 1749450478000,
+        "id": "b9091ad3-14f6-4e56-9699-8ce97b3185bb"
+    },
+    {
+        "title": "Insecure deserialization of user data",
+        "content": "The application deserializes user-controlled data without proper validation, which could lead to remote code execution. This is a critical vulnerability.",
+        "userEmail": "security@enterprise.com",
+        "labels": ["Deserialization", "Remote Code Execution", "Critical"],
+        "creationTime": 1749274629000,
+        "id": "5a0db70c-f085-414a-aafd-5076c3639533"
+    },
+    {
+        "title": "Weak session management",
+        "content": "Session tokens are predictable and can be easily guessed. We need to implement cryptographically secure random session ID generation.",
+        "userEmail": "developer@webapp.com",
+        "labels": ["Session Management", "Random Generation", "Predictability"],
+        "creationTime": 1749253849000,
+        "id": "0e8873de-4bbd-4bc7-81b0-e4759566d682"
+    },
+    {
+        "title": "LDAP injection vulnerability",
+        "content": "The LDAP query construction is vulnerable to injection attacks. User input is directly concatenated into LDAP queries without proper escaping.",
+        "userEmail": "sysadmin@corporate.com",
+        "labels": ["LDAP Injection", "Directory Services", "Input Sanitization"],
+        "creationTime": 1749462603000,
+        "id": "cc845bab-729c-4d1a-9a9a-4c2e3a68d01d"
+    },
+    {
+        "title": "Improper certificate validation",
+        "content": "The application doesn't properly validate SSL certificates, making it vulnerable to man-in-the-middle attacks. Certificate pinning should be implemented.",
+        "userEmail": "mobile@secureapp.com",
+        "labels": ["SSL/TLS", "Certificate Validation", "MITM"],
+        "creationTime": 1749198978000,
+        "id": "120d7693-721c-487c-bae8-a1a35a5a4272"
+    },
+    {
+        "title": "Race condition in payment processing",
+        "content": "Multiple concurrent payment requests can cause race conditions, potentially leading to double charges or payment bypasses. Proper locking mechanisms are needed.",
+        "userEmail": "payment@processor.com",
+        "labels": ["Race Condition", "Payment Security", "Concurrency"],
+        "creationTime": 1749180633000,
+        "id": "ed1c5fa6-fab7-4fef-bfea-e3747b8bf46f"
+    },
+    {
+        "title": "Insufficient logging and monitoring",
+        "content": "Security events are not being logged properly, making it difficult to detect and respond to security incidents. We need comprehensive security logging.",
+        "userEmail": "soc@security.com",
+        "labels": ["Logging", "Monitoring", "Incident Response"],
+        "creationTime": 1749149590000,
+        "id": "d00c8924-aba1-47eb-b8a1-493f87a9c3d1"
+    },
+    {
+        "title": "Hardcoded credentials in source code",
+        "content": "Database passwords and API keys are hardcoded in the source code, which is a major security risk. These should be moved to environment variables or secure vaults.",
+        "userEmail": "code.review@tech.com",
+        "labels": ["Hardcoded Credentials", "Source Code Security", "Secrets Management"],
+        "creationTime": 1749224067000,
+        "id": "021bbaa5-fd36-4cbd-9131-479ae3a5338a"
+    },
+    {
+        "title": "XML External Entity (XXE) vulnerability",
+        "content": "The XML parser processes external entities, which could be exploited to read local files or perform SSRF attacks. XML parsing should be configured securely.",
+        "userEmail": "xml@parser.com",
+        "labels": ["XXE", "XML Security", "File Disclosure"],
+        "creationTime": 1749294708000,
+        "id": "f06820e9-02f5-400c-a6f5-68a01cfb01e4"
+    },
+    {
+        "title": "Insecure API key management",
+        "content": "API keys are transmitted in URL parameters and logged in server logs. This exposes sensitive credentials. Keys should be sent in headers and excluded from logs.",
+        "userEmail": "api@management.com",
+        "labels": ["API Keys", "Credential Management", "Logging"],
+        "creationTime": 1749028425000,
+        "id": "a0af8972-5fd5-4bf6-b17b-7d0595b76912"
+    },
+    {
+        "title": "Buffer overflow in native library",
+        "content": "A buffer overflow vulnerability exists in the native library used for image processing. This could potentially lead to remote code execution.",
+        "userEmail": "native@code.com",
+        "labels": ["Buffer Overflow", "Native Code", "Remote Code Execution"],
+        "creationTime": 1749359913000,
+        "id": "11d79f8b-f150-4ae1-abf8-f5ff38ae3961"
+    },
+    {
+        "title": "Clickjacking vulnerability",
+        "content": "The application can be embedded in iframes without restrictions, making it vulnerable to clickjacking attacks. X-Frame-Options header should be implemented.",
+        "userEmail": "ui@security.com",
+        "labels": ["Clickjacking", "X-Frame-Options", "UI Security"],
+        "creationTime": 1748959935000,
+        "id": "2c4ade60-e83f-4cae-b43f-2f26c4751cbf"
+    },
+    {
+        "title": "Insecure random number generation",
+        "content": "The application uses a weak random number generator for security-sensitive operations like password reset tokens. This makes the tokens predictable.",
+        "userEmail": "crypto@random.com",
+        "labels": ["Random Generation", "Cryptography", "Predictability"],
+        "creationTime": 1749310226000,
+        "id": "7c68f34d-3ffa-4539-b199-beae705f8c3e"
+    },
+    {
+        "title": "Server-Side Request Forgery (SSRF)",
+        "content": "The URL fetch functionality doesn't validate destination URLs, allowing attackers to make requests to internal services and potentially access sensitive data.",
+        "userEmail": "ssrf@researcher.com",
+        "labels": ["SSRF", "URL Validation", "Internal Services"],
+        "creationTime": 1749383913000,
+        "id": "ef140cc9-a942-478e-8ce3-daafb4319d71"
+    },
+    {
+        "title": "Weak authentication bypass",
+        "content": "The 'Remember Me' functionality can be bypassed by manipulating cookies. The authentication mechanism needs to be strengthened with proper cryptographic signatures.",
+        "userEmail": "auth@bypass.com",
+        "labels": ["Authentication Bypass", "Cookie Security", "Remember Me"],
+        "creationTime": 1749235900000,
+        "id": "f7162d48-c95c-4703-af19-4b2bcc109b96"
+    },
+    {
+        "title": "Improper error handling exposes system info",
+        "content": "Stack traces and system information are exposed to users during errors, revealing sensitive details about the server configuration and internal structure.",
+        "userEmail": "error@handling.com",
+        "labels": ["Error Handling", "Information Disclosure", "Stack Traces"],
+        "creationTime": 1749082443000,
+        "id": "c58ad332-5664-4bb4-89e8-6e7fdcf6bf4d"
+    },
+    {
+        "title": "Insecure communication channels",
+        "content": "Some API endpoints are accessible over HTTP instead of HTTPS, allowing sensitive data to be transmitted in plain text and potentially intercepted.",
+        "userEmail": "network@security.com",
+        "labels": ["HTTP/HTTPS", "Encryption in Transit", "Network Security"],
+        "creationTime": 1749274386000,
+        "id": "c4ee050b-cca5-46d9-8e62-e9e00eeb546f"
+    },
+    {
+        "title": "Vulnerable third-party dependencies",
+        "content": "Several third-party libraries have known security vulnerabilities. A security audit revealed multiple high-severity CVEs that need to be addressed by updating dependencies.",
+        "userEmail": "dependency@scanner.com",
+        "labels": ["Third-party Dependencies", "CVE", "Vulnerability Management"],
+        "creationTime": 1748902721000,
+        "id": "043ad463-ab68-49ef-a613-761a93f93b3d"
+    },
+    {
+        "title": "Insufficient access controls on file system",
+        "content": "Web application files have overly permissive file system permissions, allowing unauthorized access to configuration files and potentially source code.",
+        "userEmail": "filesystem@security.com",
+        "labels": ["File Permissions", "Access Control", "Configuration Files"],
+        "creationTime": 1749393438000,
+        "id": "a615cea4-2cac-4ea0-89e7-4ad86e397c00"
+    },
+    {
+        "title": "Weak password recovery mechanism",
+        "content": "The password recovery process only asks for username and sends a new password via email. This is vulnerable to account takeover attacks.",
+        "userEmail": "password@recovery.com",
+        "labels": ["Password Recovery", "Account Takeover", "Email Security"],
+        "creationTime": 1749369471000,
+        "id": "fb71e6f6-de4b-48e3-8489-8a215c38beed"
+    },
+    {
+        "title": "Missing anti-automation measures",
+        "content": "There are no CAPTCHA or rate limiting mechanisms to prevent automated attacks like credential stuffing and brute force login attempts.",
+        "userEmail": "automation@defense.com",
+        "labels": ["CAPTCHA", "Brute Force", "Automation"],
+        "creationTime": 1748879445000,
+        "id": "0a4daf89-7b41-4d27-93d3-57a6fa1358cd"
+    },
+    {
+        "title": "Insecure mobile app certificate pinning",
+        "content": "The mobile application doesn't implement certificate pinning, making it vulnerable to man-in-the-middle attacks when connecting to the API.",
+        "userEmail": "mobile@security.com",
+        "labels": ["Mobile Security", "Certificate Pinning", "MITM"],
+        "creationTime": 1749340717000,
+        "id": "9e674570-f6e4-47af-a7d9-4447a0a9c267"
+    },
+    {
+        "title": "Data leakage through URL parameters",
+        "content": "Sensitive information like user IDs and session tokens are being passed through URL parameters, which can be logged in server logs and browser history.",
+        "userEmail": "privacy@protection.com",
+        "labels": ["Data Leakage", "URL Parameters", "Privacy"],
+        "creationTime": 1749101745000,
+        "id": "1ce51f65-4930-4a31-ab22-a73f3cda9925"
+    },
+    {
+        "title": "Insufficient input sanitization",
+        "content": "User input is not properly sanitized before being stored in the database, leading to potential stored XSS vulnerabilities when the data is displayed to other users.",
+        "userEmail": "input@sanitization.com",
+        "labels": ["Input Sanitization", "Stored XSS", "Data Validation"],
+        "creationTime": 1749035363000,
+        "id": "83adeba5-8aca-48cf-b636-f70d060d4eb4"
+    },
+    {
+        "title": "Weak encryption algorithm usage",
+        "content": "The application uses DES encryption for sensitive data, which is considered cryptographically broken. Migration to AES-256 is urgently needed.",
+        "userEmail": "crypto@upgrade.com",
+        "labels": ["Weak Encryption", "DES", "AES Migration"],
+        "creationTime": 1748948773000,
+        "id": "eb6035fa-feef-45e5-9282-5cf0289c9fb8"
+    },
+    {
+        "title": "Business logic bypass vulnerability",
+        "content": "The shopping cart checkout process can be bypassed by manipulating the total price in the client-side JavaScript, allowing users to purchase items for arbitrary amounts.",
+        "userEmail": "ecommerce@logic.com",
+        "labels": ["Business Logic", "Price Manipulation", "Client-side Security"],
+        "creationTime": 1748657451000,
+        "id": "ce413e5f-906c-40a4-b9f4-3e5baafec680"
+    },
+    {
+        "title": "Insecure backup storage",
+        "content": "Database backups are stored on a publicly accessible S3 bucket without proper access controls, potentially exposing all user data.",
+        "userEmail": "backup@storage.com",
+        "labels": ["Backup Security", "S3 Security", "Data Exposure"],
+        "creationTime": 1749056394000,
+        "id": "6dac2d10-a77f-472d-9857-bbc0bab3cde3"
+    },
+    {
+        "title": "Missing security patches",
+        "content": "The web server is running an outdated version with known security vulnerabilities. Several critical security patches are missing.",
+        "userEmail": "sysadmin@patches.com",
+        "labels": ["Security Patches", "Web Server", "Vulnerability Management"],
+        "creationTime": 1748887175000,
+        "id": "82f91eac-738d-490d-b683-73b275f28f01"
+    },
+    {
+        "title": "Weak multi-factor authentication",
+        "content": "The MFA implementation only uses SMS, which is vulnerable to SIM swapping attacks. TOTP or hardware tokens should be offered as alternatives.",
+        "userEmail": "mfa@security.com",
+        "labels": ["Multi-factor Authentication", "SMS Security", "TOTP"],
+        "creationTime": 1748910273000,
+        "id": "b488ee6f-65aa-458e-93a5-3c82d125565a"
+    },
+    {
+        "title": "Insecure OAuth implementation",
+        "content": "The OAuth flow doesn't properly validate the state parameter, making it vulnerable to CSRF attacks during the authentication process.",
+        "userEmail": "oauth@implementation.com",
+        "labels": ["OAuth", "State Parameter", "CSRF"],
+        "creationTime": 1749277447000,
+        "id": "d94b708a-bb2e-4206-8701-02fc7ab84ee9"
+    },
+    {
+        "title": "Command injection vulnerability",
+        "content": "User input is passed directly to system commands without proper escaping, allowing attackers to execute arbitrary commands on the server.",
+        "userEmail": "command@injection.com",
+        "labels": ["Command Injection", "System Commands", "Remote Code Execution"],
+        "creationTime": 1749077982000,
+        "id": "d2e54828-cca3-4533-b667-09565351f03f"
+    },
+    {
+        "title": "Insecure session storage",
+        "content": "Session data is stored in browser localStorage, which persists even after browser closure and can be accessed by any script running on the domain.",
+        "userEmail": "session@storage.com",
+        "labels": ["Session Storage", "localStorage", "Browser Security"],
+        "creationTime": 1749261579000,
+        "id": "68f98451-2d6c-47dd-93a5-51b74889f012"
+    },
+    {
+        "title": "Weak CORS policy configuration",
+        "content": "The CORS policy allows requests from any origin (*), which could enable malicious websites to make unauthorized requests to our API on behalf of users.",
+        "userEmail": "cors@policy.com",
+        "labels": ["CORS", "Cross-origin", "API Security"],
+        "creationTime": 1748583496000,
+        "id": "18396b07-a68d-4905-bcc6-641f355f6272"
+    },
+    {
+        "title": "Timing attack vulnerability",
+        "content": "The login function has different response times for valid vs invalid usernames, allowing attackers to enumerate valid usernames through timing analysis.",
+        "userEmail": "timing@attack.com",
+        "labels": ["Timing Attack", "Username Enumeration", "Side Channel"],
+        "creationTime": 1748895133000,
+        "id": "483e3ec5-25a2-4311-8feb-66b5b2c025d8"
+    },
+    {
+        "title": "Insufficient database access controls",
+        "content": "The database user account has excessive privileges including DROP and ALTER permissions, violating the principle of least privilege.",
+        "userEmail": "database@access.com",
+        "labels": ["Database Security", "Least Privilege", "Access Control"],
+        "creationTime": 1749165966000,
+        "id": "86d22d0e-756e-402f-8b63-40f70ec1d2b3"
+    },
+    {
+        "title": "Insecure direct object references in URLs",
+        "content": "Sequential user IDs in URLs allow attackers to access other users' profiles and data by simply incrementing the ID parameter.",
+        "userEmail": "idor@urls.com",
+        "labels": ["IDOR", "Sequential IDs", "URL Security"],
+        "creationTime": 1748730023000,
+        "id": "61f561ef-2da8-443f-a4cd-a44513dd0681"
+    },
+    {
+        "title": "Missing integrity checks for downloads",
+        "content": "Software downloads don't include checksums or digital signatures, making it impossible for users to verify the integrity of downloaded files.",
+        "userEmail": "integrity@downloads.com",
+        "labels": ["File Integrity", "Digital Signatures", "Download Security"],
+        "creationTime": 1748846135000,
+        "id": "053b4605-8062-49b4-a334-84109c3e6feb"
+    },
+    {
+        "title": "Vulnerable to NoSQL injection",
+        "content": "MongoDB queries are constructed using string concatenation, making them vulnerable to NoSQL injection attacks that could bypass authentication.",
+        "userEmail": "nosql@injection.com",
+        "labels": ["NoSQL Injection", "MongoDB", "Query Construction"],
+        "creationTime": 1749084621000,
+        "id": "17973bff-0845-4a4f-ad6a-1b15652f52da"
+    },
+    {
+        "title": "Insecure password storage mechanism",
+        "content": "Passwords are hashed using SHA-1 without salt, making them vulnerable to rainbow table attacks. bcrypt with proper salt should be implemented.",
+        "userEmail": "password@hashing.com",
+        "labels": ["Password Hashing", "SHA-1", "Rainbow Tables"],
+        "creationTime": 1748834298000,
+        "id": "9402b8cc-2ac5-4cdd-b92f-4854a5269f76"
+    },
+    {
+        "title": "HTTP response splitting vulnerability",
+        "content": "User input is included in HTTP headers without proper validation, allowing attackers to inject additional headers and potentially execute HTTP response splitting attacks.",
+        "userEmail": "http@splitting.com",
+        "labels": ["HTTP Response Splitting", "Header Injection", "HTTP Security"],
+        "creationTime": 1748464643000,
+        "id": "a0fbe31f-3e4b-4b14-b490-72a5d32f2b85"
+    },
+    {
+        "title": "Insecure WebSocket implementation",
+        "content": "WebSocket connections don't validate origin headers, allowing any website to establish connections and potentially access sensitive real-time data.",
+        "userEmail": "websocket@security.com",
+        "labels": ["WebSocket Security", "Origin Validation", "Real-time Data"],
+        "creationTime": 1748808603000,
+        "id": "f1fae21c-be90-45bc-ad56-d1e20f05d9a1"
+    },
+    {
+        "title": "Weak API authentication",
+        "content": "API endpoints use basic authentication over HTTP, transmitting credentials in base64 encoding which can be easily decoded by attackers.",
+        "userEmail": "api@authentication.com",
+        "labels": ["API Authentication", "Basic Auth", "Credential Transmission"],
+        "creationTime": 1748661119000,
+        "id": "2ea5f296-894e-40dc-9836-34fe5d89b357"
+    },
+    {
+        "title": "Insufficient audit logging",
+        "content": "Critical security events like failed login attempts and privilege escalations are not being logged, making forensic analysis difficult.",
+        "userEmail": "audit@logging.com",
+        "labels": ["Audit Logging", "Security Events", "Forensics"],
+        "creationTime": 1748831021000,
+        "id": "d9764519-9797-4637-b986-26a2f109d70c"
+    },
+    {
+        "title": "Improper certificate validation in API calls",
+        "content": "The application doesn't validate SSL certificates when making API calls to external services, making it vulnerable to man-in-the-middle attacks.",
+        "userEmail": "cert@validation.com",
+        "labels": ["Certificate Validation", "API Calls", "External Services"],
+        "creationTime": 1748459883000,
+        "id": "3ea42741-1882-4ad9-8842-0acfd6748340"
+    },
+    {
+        "title": "Vulnerable to CSV injection",
+        "content": "Exported CSV files contain formulas that execute when opened in spreadsheet applications, potentially leading to code execution on user machines.",
+        "userEmail": "csv@injection.com",
+        "labels": ["CSV Injection", "Formula Injection", "Export Security"],
+        "creationTime": 1749301173000,
+        "id": "5b320613-b484-485a-b90e-209dc3b2d1c3"
+    },
+    {
+        "title": "Insecure password reset tokens",
+        "content": "Password reset tokens are generated using the current timestamp, making them predictable. Cryptographically secure random tokens should be used.",
+        "userEmail": "reset@tokens.com",
+        "labels": ["Password Reset", "Token Generation", "Predictability"],
+        "creationTime": 1748258377000,
+        "id": "2dff9b8e-0bdb-4eeb-9be2-6ca897882d54"
+    },
+    {
+        "title": "Missing Content Security Policy",
+        "content": "The application lacks a Content Security Policy header, making it more vulnerable to XSS attacks and other client-side injection vulnerabilities.",
+        "userEmail": "csp@security.com",
+        "labels": ["Content Security Policy", "XSS Prevention", "Client Security"],
+        "creationTime": 1748330691000,
+        "id": "441a8fd3-a02f-447e-ac8f-28a445bafef2"
+    },
+    {
+        "title": "Weak encryption key management",
+        "content": "Encryption keys are stored in plain text in configuration files and not rotated regularly, posing a significant security risk.",
+        "userEmail": "key@management.com",
+        "labels": ["Key Management", "Encryption Keys", "Key Rotation"],
+        "creationTime": 1748463179000,
+        "id": "fc8b5eef-363c-42e6-901d-bc81fc5b7760"
+    },
+    {
+        "title": "Insecure email handling",
+        "content": "Email addresses are not validated properly, allowing attackers to send emails to arbitrary recipients by manipulating the email parameter.",
+        "userEmail": "email@security.com",
+        "labels": ["Email Security", "Email Validation", "Email Injection"],
+        "creationTime": 1748574998000,
+        "id": "ec40b364-5d36-4f61-8eb7-ed5f817e0dd9"
+    },
+    {
+        "title": "Privilege escalation through parameter pollution",
+        "content": "HTTP parameter pollution allows users to escalate privileges by sending multiple role parameters, with the application processing only the last one.",
+        "userEmail": "parameter@pollution.com",
+        "labels": ["Parameter Pollution", "Privilege Escalation", "HTTP Parameters"],
+        "creationTime": 1748631645000,
+        "id": "4e720455-fca1-45d4-b1f3-73fa369f5209"
+    },
+    {
+        "title": "Insecure temporary file handling",
+        "content": "Temporary files are created with predictable names in world-readable directories, potentially exposing sensitive data to other users on the system.",
+        "userEmail": "temp@files.com",
+        "labels": ["Temporary Files", "File Permissions", "Predictable Names"],
+        "creationTime": 1749212193000,
+        "id": "b4c4c089-be5a-4cfc-9261-7ef6060dab6f"
+    },
+    {
+        "title": "Vulnerable to Host Header injection",
+        "content": "The application trusts the Host header without validation, which could be exploited for password reset poisoning and other attacks.",
+        "userEmail": "host@header.com",
+        "labels": ["Host Header Injection", "Header Validation", "Password Reset"],
+        "creationTime": 1748657955000,
+        "id": "930b3f07-a060-413c-889f-57878ca9e196"
+    },
+    {
+        "title": "Improper input validation on file uploads",
+        "content": "File upload functionality only validates file extensions on the client side, allowing attackers to upload malicious files by bypassing client-side validation.",
+        "userEmail": "upload@validation.com",
+        "labels": ["File Upload", "Input Validation", "Client-side Bypass"],
+        "creationTime": 1748388474000,
+        "id": "784c56ea-3951-4258-90a2-83eb93205d74"
+    },
+    {
+        "title": "Weak randomness in CSRF tokens",
+        "content": "CSRF tokens use a weak random number generator, making them predictable and potentially allowing attackers to forge valid tokens.",
+        "userEmail": "csrf@tokens.com",
+        "labels": ["CSRF Tokens", "Weak Randomness", "Token Prediction"],
+        "creationTime": 1748949253000,
+        "id": "83453277-11f8-49f1-bf52-0d4d381273b0"
+    },
+    {
+        "title": "Insecure API versioning",
+        "content": "Older API versions with known vulnerabilities are still accessible and not properly deprecated, providing attack vectors for malicious users.",
+        "userEmail": "api@versioning.com",
+        "labels": ["API Versioning", "Legacy APIs", "Deprecation"],
+        "creationTime": 1749009372000,
+        "id": "62337649-c5e4-45c1-91f8-8ab677e465c0"
+    },
+    {
+        "title": "Missing rate limiting on password reset",
+        "content": "The password reset functionality doesn't have rate limiting, allowing attackers to flood users with password reset emails or perform brute force attacks.",
+        "userEmail": "rate@limiting.com",
+        "labels": ["Rate Limiting", "Password Reset", "Brute Force"],
+        "creationTime": 1749165171000,
+        "id": "e0aa7b3f-5cfe-4ba6-8d20-ee5455233540"
+    },
+    {
+        "title": "Insecure handling of sensitive data in logs",
+        "content": "Application logs contain sensitive information including passwords, credit card numbers, and personal data, violating privacy regulations.",
+        "userEmail": "log@security.com",
+        "labels": ["Sensitive Data", "Logging", "Privacy Compliance"],
+        "creationTime": 1749150383000,
+        "id": "2bc6523d-c6f2-45cd-862a-7b9eb92b56e0"
+    },
+    {
+        "title": "Vulnerable to LDAP injection in search",
+        "content": "The user search functionality constructs LDAP queries without proper input sanitization, allowing attackers to inject malicious LDAP filters.",
+        "userEmail": "ldap@search.com",
+        "labels": ["LDAP Injection", "Search Functionality", "Input Sanitization"],
+        "creationTime": 1748226839000,
+        "id": "b3598169-0a0b-49d8-b77c-f771cf0b3dee"
+    },
+    {
+        "title": "Improper session invalidation",
+        "content": "Sessions are not properly invalidated on logout, allowing attackers to reuse session tokens even after users have logged out of the application.",
+        "userEmail": "session@invalidation.com",
+        "labels": ["Session Management", "Logout", "Session Invalidation"],
+        "creationTime": 1748214633000,
+        "id": "790f3355-e020-4989-921c-cc6d027ec7c7"
+    },
+    {
+        "title": "Weak XML parser configuration",
+        "content": "The XML parser is configured to process external entities and DTDs, making it vulnerable to XXE attacks and potential system compromise.",
+        "userEmail": "xml@configuration.com",
+        "labels": ["XML Parser", "XXE Prevention", "External Entities"],
+        "creationTime": 1749241499000,
+        "id": "5be8d188-d109-4cec-b004-250d011c3540"
+    },
+    {
+        "title": "Insecure API key transmission",
+        "content": "API keys are transmitted in HTTP headers without encryption when using HTTP endpoints, making them vulnerable to interception.",
+        "userEmail": "api@transmission.com",
+        "labels": ["API Key Security", "HTTP Transmission", "Encryption"],
+        "creationTime": 1748532711000,
+        "id": "4106149c-a817-4ddf-b96e-06d0a3ba0d81"
+    },
+    {
+        "title": "Missing security headers in API responses",
+        "content": "API responses lack important security headers like X-Content-Type-Options and X-Frame-Options, making client applications more vulnerable to attacks.",
+        "userEmail": "api@headers.com",
+        "labels": ["API Security", "HTTP Headers", "Client Protection"],
+        "creationTime": 1748961111000,
+        "id": "8d95e0da-ce42-4c22-8659-90106f4c8eca"
+    },
+    {
+        "title": "Weak password complexity enforcement",
+        "content": "The password policy doesn't prevent common passwords or dictionary words, allowing users to set easily guessable passwords like 'password123'.",
+        "userEmail": "password@complexity.com",
+        "labels": ["Password Policy", "Common Passwords", "Dictionary Attack"],
+        "creationTime": 1748467450000,
+        "id": "ab51c552-784b-442c-bb6a-bcec34aadcaf"
+    },
+    {
+        "title": "Insecure handling of user permissions",
+        "content": "User permissions are checked only on the client side, allowing attackers to bypass restrictions by modifying JavaScript code or using custom requests.",
+        "userEmail": "permissions@client.com",
+        "labels": ["Client-side Security", "Permission Bypass", "Server-side Validation"],
+        "creationTime": 1748557163000,
+        "id": "63fc9d97-4723-4daa-985f-55ea75dd84eb"
+    },
+    {
+        "title": "Vulnerable to authentication bypass",
+        "content": "The authentication check can be bypassed by setting a specific cookie value, allowing unauthorized access to protected areas of the application.",
+        "userEmail": "auth@bypass.com",
+        "labels": ["Authentication Bypass", "Cookie Manipulation", "Access Control"],
+        "creationTime": 1749036075000,
+        "id": "32248285-d961-4572-943d-935dc1caf51b"
+    },
+    {
+        "title": "Insecure data transmission to third parties",
+        "content": "Sensitive user data is transmitted to third-party analytics services without proper encryption, potentially exposing personal information.",
+        "userEmail": "third@party.com",
+        "labels": ["Third-party Integration", "Data Transmission", "Privacy"],
+        "creationTime": 1749150247000,
+        "id": "cece0ab2-d1b3-46ec-8662-0784f1473a1b"
+    },
+    {
+        "title": "Missing input validation in API endpoints",
+        "content": "Several API endpoints accept and process malformed JSON data without validation, leading to application errors and potential security vulnerabilities.",
+        "userEmail": "json@validation.com",
+        "labels": ["JSON Validation", "API Security", "Input Validation"],
+        "creationTime": 1748134990000,
+        "id": "94bdddf8-9d83-42f5-89ea-af3a3f2da47b"
+    },
+    {
+        "title": "Weak session timeout configuration",
+        "content": "User sessions don't have appropriate timeout values, remaining active for weeks without user interaction, increasing the risk of session hijacking.",
+        "userEmail": "session@timeout.com",
+        "labels": ["Session Timeout", "Session Management", "Idle Sessions"],
+        "creationTime": 1748234679000,
+        "id": "5cd2cddc-fb1f-4b65-80e2-ad41b52c5f30"
+    },
+    {
+        "title": "Insecure handling of error responses",
+        "content": "Error responses include detailed information about the system configuration and database structure, providing valuable information to attackers.",
+        "userEmail": "error@responses.com",
+        "labels": ["Error Handling", "Information Disclosure", "System Information"],
+        "creationTime": 1749148388000,
+        "id": "9fe4fdad-40dd-4685-b887-1aad1cc49c1a"
+    },
+    {
+        "title": "Vulnerable to URL manipulation attacks",
+        "content": "The application constructs URLs using user input without proper validation, allowing attackers to redirect users to malicious websites.",
+        "userEmail": "url@manipulation.com",
+        "labels": ["URL Manipulation", "Open Redirect", "Input Validation"],
+        "creationTime": 1747770135000,
+        "id": "d50e2431-199f-4136-84c3-8ab1dae19bea"
+    },
+    {
+        "title": "Insecure webhook validation",
+        "content": "Webhook endpoints don't validate the source of incoming requests, allowing attackers to trigger arbitrary webhook events and potentially manipulate data.",
+        "userEmail": "webhook@validation.com",
+        "labels": ["Webhook Security", "Source Validation", "Request Verification"],
+        "creationTime": 1747846683000,
+        "id": "26d8fa3d-0ed4-46e6-a358-d1c782a868dd"
+    },
+    {
+        "title": "Weak encryption implementation",
+        "content": "The application uses ECB mode for AES encryption, which is cryptographically weak and can reveal patterns in encrypted data.",
+        "userEmail": "encryption@mode.com",
+        "labels": ["AES Encryption", "ECB Mode", "Cryptographic Weakness"],
+        "creationTime": 1748053947000,
+        "id": "63efc088-4686-4e48-bcda-35e2be91fb47"
+    },
+    {
+        "title": "Missing authorization checks in API",
+        "content": "Several API endpoints perform operations without checking if the requesting user has appropriate permissions, leading to unauthorized data access.",
+        "userEmail": "api@authorization.com",
+        "labels": ["API Authorization", "Permission Checks", "Access Control"],
+        "creationTime": 1748375392000,
+        "id": "8a69dd97-5a5e-4d74-b38b-fb686fb04934"
+    },
+    {
+        "title": "Insecure cache implementation",
+        "content": "Sensitive data is cached without proper expiration or access controls, potentially exposing user information to unauthorized parties.",
+        "userEmail": "cache@security.com",
+        "labels": ["Cache Security", "Data Expiration", "Access Control"],
+        "creationTime": 1748714883000,
+        "id": "da9a3b26-06bb-4f31-9817-64235fe6485d"
+    },
+    {
+        "title": "Vulnerable to prototype pollution",
+        "content": "The application processes user-controlled JSON data without proper validation, making it vulnerable to prototype pollution attacks in Node.js.",
+        "userEmail": "prototype@pollution.com",
+        "labels": ["Prototype Pollution", "JSON Processing", "Node.js Security"],
+        "creationTime": 1748720689000,
+        "id": "8e633bb2-dc09-4e46-a071-055bd4e258c5"
+    },
+    {
+        "title": "Weak token validation mechanism",
+        "content": "Authentication tokens are validated using simple string comparison instead of cryptographic verification, making them vulnerable to forgery.",
+        "userEmail": "token@validation.com",
+        "labels": ["Token Validation", "Cryptographic Verification", "Token Forgery"],
+        "creationTime": 1747980707000,
+        "id": "c55befb4-e915-40aa-b4e6-e69f543deb0c"
+    },
+    {
+        "title": "Insecure password change process",
+        "content": "The password change functionality doesn't require the current password, allowing attackers with session access to change user passwords.",
+        "userEmail": "password@change.com",
+        "labels": ["Password Change", "Current Password", "Session Security"],
+        "creationTime": 1748076531000,
+        "id": "a5056f21-bcfb-4de3-9f29-048dc210fb7f"
+    },
+    {
+        "title": "Missing HTTPS enforcement",
+        "content": "The application accepts HTTP requests for sensitive operations like login and payment processing, allowing credentials to be transmitted in plain text.",
+        "userEmail": "https@enforcement.com",
+        "labels": ["HTTPS Enforcement", "HTTP Security", "Credential Protection"],
+        "creationTime": 1747797749000,
+        "id": "ea2c4749-e65a-4e1c-af07-8942d49f4b13"
+    },
+    {
+        "title": "Vulnerable to subdomain takeover",
+        "content": "DNS records point to services that are no longer active, making the subdomain vulnerable to takeover attacks by malicious actors.",
+        "userEmail": "subdomain@takeover.com",
+        "labels": ["Subdomain Takeover", "DNS Security", "Service Decommission"],
+        "creationTime": 1748687193000,
+        "id": "f83da52b-7639-49af-b451-56773ac0b15a"
+    },
+    {
+        "title": "Insecure API documentation exposure",
+        "content": "API documentation including sensitive endpoints and authentication details is publicly accessible, providing attackers with valuable information.",
+        "userEmail": "api@documentation.com",
+        "labels": ["API Documentation", "Information Disclosure", "Public Access"],
+        "creationTime": 1748282379000,
+        "id": "ef95a895-a385-4ab3-a14b-8b9235c3f292"
+    },
+    {
+        "title": "Weak input filtering mechanisms",
+        "content": "Input filtering can be bypassed using various encoding techniques, allowing malicious payloads to reach the application logic.",
+        "userEmail": "input@filtering.com",
+        "labels": ["Input Filtering", "Encoding Bypass", "Filter Evasion"],
+        "creationTime": 1748071857000,
+        "id": "afb3e6dc-9ae1-4e76-afa8-67d0dc0bda40"
+    },
+    {
+        "title": "Insecure mobile app storage",
+        "content": "The mobile application stores sensitive data in plain text in local storage without proper encryption or access controls.",
+        "userEmail": "mobile@storage.com",
+        "labels": ["Mobile App Security", "Local Storage", "Data Encryption"],
+        "creationTime": 1747436749000,
+        "id": "2acdace7-478d-4817-bdca-a4aa9325d10b"
+    },
+    {
+        "title": "Missing security controls in CI/CD",
+        "content": "The CI/CD pipeline lacks security scanning and vulnerability assessment, potentially deploying vulnerable code to production.",
+        "userEmail": "cicd@security.com",
+        "labels": ["CI/CD Security", "Security Scanning", "Vulnerability Assessment"],
+        "creationTime": 1747535055000,
+        "id": "fec20fe1-9af7-4ad0-ae6b-7c853c47edb0"
+    },
+    {
+        "title": "Vulnerable to path traversal attacks",
+        "content": "File serving functionality doesn't properly validate file paths, allowing attackers to access files outside the intended directory structure.",
+        "userEmail": "path@traversal.com",
+        "labels": ["Path Traversal", "File Access", "Directory Validation"],
+        "creationTime": 1748675183000,
+        "id": "d6231200-b44e-4be1-9df1-4bca8d54fad2"
+    },
+    {
+        "title": "Insecure default configuration",
+        "content": "The application ships with insecure default settings including default passwords and overly permissive access controls.",
+        "userEmail": "default@config.com",
+        "labels": ["Default Configuration", "Default Passwords", "Secure Defaults"],
+        "creationTime": 1748509664000,
+        "id": "08ae677e-9830-45e3-8c61-e537be090501"
+    },
+    {
+        "title": "Weak algorithm for password hashing",
+        "content": "User passwords are hashed using MD5, which is cryptographically broken and vulnerable to collision attacks and rainbow table lookups.",
+        "userEmail": "md5@hashing.com",
+        "labels": ["MD5 Hashing", "Cryptographic Weakness", "Password Security"],
+        "creationTime": 1748568705000,
+        "id": "8431a323-f967-4081-ad2a-61403b1777ae"
+    },
+    {
+        "title": "Missing input validation in forms",
+        "content": "Web forms don't validate input length limits, allowing attackers to submit extremely long strings that could cause buffer overflows or DoS.",
+        "userEmail": "form@validation.com",
+        "labels": ["Form Validation", "Input Length", "Buffer Overflow"],
+        "creationTime": 1747928191000,
+        "id": "71b7ea18-14db-4707-b5b9-c9f8460aa288"
+    },
+    {
+        "title": "Insecure session cookie configuration",
+        "content": "Session cookies are missing the Secure and HttpOnly flags, making them vulnerable to interception and client-side script access.",
+        "userEmail": "cookie@security.com",
+        "labels": ["Cookie Security", "Secure Flag", "HttpOnly Flag"],
+        "creationTime": 1748952427000,
+        "id": "fcbf50b8-135b-47a3-8d7f-22fdfcd6ebbb"
+    },
+    {
+        "title": "Vulnerable to account enumeration",
+        "content": "Different error messages for invalid username vs invalid password allow attackers to enumerate valid usernames in the system.",
+        "userEmail": "account@enumeration.com",
+        "labels": ["Account Enumeration", "Error Messages", "Username Discovery"],
+        "creationTime": 1747865058000,
+        "id": "eee0deb7-d376-431f-b53a-4a5658fe5804"
+    },
+    {
+        "title": "Insecure data serialization",
+        "content": "Sensitive data is serialized without encryption before storage, making it readable by anyone with access to the storage medium.",
+        "userEmail": "data@serialization.com",
+        "labels": ["Data Serialization", "Encryption", "Data at Rest"],
+        "creationTime": 1747817405000,
+        "id": "aee95920-1a39-4880-952a-16e6b4fc9a5b"
+    },
+    {
+        "title": "Missing rate limiting on API endpoints",
+        "content": "API endpoints lack rate limiting controls, making them vulnerable to abuse and potential denial of service attacks.",
+        "userEmail": "api@ratelimit.com",
+        "labels": ["API Rate Limiting", "DoS Protection", "Abuse Prevention"],
+        "creationTime": 1747678848000,
+        "id": "5b23d887-3a07-4d07-b978-1a3a6a80ccf1"
+    },
+    {
+        "title": "Weak authentication token expiration",
+        "content": "Authentication tokens have excessively long expiration times, increasing the window of opportunity for token-based attacks.",
+        "userEmail": "token@expiration.com",
+        "labels": ["Token Expiration", "Authentication Tokens", "Token Lifetime"],
+        "creationTime": 1747760919000,
+        "id": "027aa47c-ee04-47e7-a13a-411ec8fc3cc9"
+    },
+    {
+        "title": "Insecure handling of user uploads",
+        "content": "User-uploaded files are served directly without content type validation, potentially allowing the execution of malicious scripts.",
+        "userEmail": "upload@handling.com",
+        "labels": ["File Upload", "Content Type", "Script Execution"],
+        "creationTime": 1747468130000,
+        "id": "92bb735a-ed69-4028-ad7f-242fb96e9e00"
+    },
+    {
+        "title": "Vulnerable to DNS poisoning attacks",
+        "content": "The application doesn't validate DNS responses, making it vulnerable to DNS poisoning attacks that could redirect traffic to malicious servers.",
+        "userEmail": "dns@poisoning.com",
+        "labels": ["DNS Poisoning", "DNS Validation", "Traffic Redirection"],
+        "creationTime": 1747521173000,
+        "id": "86c56963-e49c-4ad0-9229-7ae9c2a06026"
+    },
+    {
+        "title": "Missing security headers for XSS protection",
+        "content": "The application lacks X-XSS-Protection headers, making it more vulnerable to reflected XSS attacks in older browsers.",
+        "userEmail": "xss@protection.com",
+        "labels": ["XSS Protection", "Security Headers", "Browser Security"],
+        "creationTime": 1748504376000,
+        "id": "fde8ff51-0104-4964-9eb9-6d0cd6bfe80d"
+    },
+    {
+        "title": "Insecure random seed generation",
+        "content": "Random number generators are seeded with predictable values like the current time, making generated values predictable.",
+        "userEmail": "random@seed.com",
+        "labels": ["Random Seed", "Predictable Values", "Cryptographic Randomness"],
+        "creationTime": 1747398011000,
+        "id": "a3b5b431-6071-40bb-a828-d410a7dc488a"
+    },
+    {
+        "title": "Weak access control implementation",
+        "content": "Access control decisions are based on client-side information that can be easily manipulated by attackers to gain unauthorized access.",
+        "userEmail": "access@control.com",
+        "labels": ["Access Control", "Client-side", "Authorization Bypass"],
+        "creationTime": 1747740041000,
+        "id": "629c64fe-50a8-402c-80a7-29860674cbac"
+    },
+    {
+        "title": "Vulnerable to template injection",
+        "content": "User input is directly inserted into template engines without proper escaping, allowing attackers to execute arbitrary code through template injection.",
+        "userEmail": "template@injection.com",
+        "labels": ["Template Injection", "Code Execution", "Template Security"],
+        "creationTime": 1747471725000,
+        "id": "baed0a5f-5be4-4cf1-a208-550b9736448c"
+    },
+    {
+        "title": "Insecure API key storage",
+        "content": "API keys are stored in client-side code and mobile applications where they can be easily extracted by attackers.",
+        "userEmail": "apikey@storage.com",
+        "labels": ["API Key Storage", "Client-side", "Key Extraction"],
+        "creationTime": 1748805993000,
+        "id": "036b8d7a-2d0c-436f-ad07-3e14f40198ac"
+    },
+    {
+        "title": "Missing integrity verification",
+        "content": "File uploads and data transfers don't include integrity checks, making it impossible to detect tampering or corruption.",
+        "userEmail": "integrity@verification.com",
+        "labels": ["Data Integrity", "File Uploads", "Tampering Detection"],
+        "creationTime": 1748344903000,
+        "id": "de80423f-21e7-4f89-ba15-cf36fbaf4955"
+    },
+    {
+        "title": "Vulnerable to cache poisoning",
+        "content": "The caching mechanism doesn't properly validate cache keys, allowing attackers to poison the cache with malicious content.",
+        "userEmail": "cache@poisoning.com",
+        "labels": ["Cache Poisoning", "Cache Validation", "Content Manipulation"],
+        "creationTime": 1748641272000,
+        "id": "5b27fe4a-9485-41a0-b5d7-fc5ba87da592"
+    },
+    {
+        "title": "Insecure inter-service communication",
+        "content": "Communication between microservices doesn't use encryption or authentication, making internal network traffic vulnerable to interception.",
+        "userEmail": "microservice@communication.com",
+        "labels": ["Microservice Security", "Internal Communication", "Network Encryption"],
+        "creationTime": 1748560919000,
+        "id": "19e8be25-b9fb-4b87-9dac-94beeec291d5"
+    },
+    {
+        "title": "Weak password policy enforcement",
+        "content": "Password policies are enforced only on the client side and can be bypassed by directly submitting requests to the server.",
+        "userEmail": "policy@enforcement.com",
+        "labels": ["Password Policy", "Client-side Enforcement", "Server Validation"],
+        "creationTime": 1747741060000,
+        "id": "1b3afec9-e1b5-4908-acc7-9f55cf22c934"
+    },
+    {
+        "title": "Missing CSRF protection on forms",
+        "content": "Critical forms like account deletion and password change lack CSRF protection, making them vulnerable to cross-site request forgery attacks.",
+        "userEmail": "csrf@protection.com",
+        "labels": ["CSRF Protection", "Form Security", "Request Forgery"],
+        "creationTime": 1748992083000,
+        "id": "19da1a4a-32e9-49f6-bbf6-336551c9ae89"
+    },
+    {
+        "title": "Insecure handling of sensitive URLs",
+        "content": "URLs containing sensitive information like reset tokens are logged in server logs and can be accessed by unauthorized personnel.",
+        "userEmail": "sensitive@urls.com",
+        "labels": ["Sensitive URLs", "URL Logging", "Token Exposure"],
+        "creationTime": 1749051911000,
+        "id": "8ef89dbb-5a31-4636-8946-974ae1174c8a"
+    },
+    {
+        "title": "Vulnerable to clickjacking attacks",
+        "content": "The application can be embedded in malicious iframes without restrictions, making it vulnerable to clickjacking and UI redress attacks.",
+        "userEmail": "clickjacking@attacks.com",
+        "labels": ["Clickjacking", "iframe Protection", "UI Security"],
+        "creationTime": 1747573165000,
+        "id": "c6d7fb5d-306b-4af2-bded-448473deeaa1"
+    },
+    {
+        "title": "Weak cryptographic key derivation",
+        "content": "Encryption keys are derived from user passwords using weak algorithms without proper salt, making them vulnerable to dictionary attacks.",
+        "userEmail": "key@derivation.com",
+        "labels": ["Key Derivation", "Weak Algorithms", "Salt Usage"],
+        "creationTime": 1747683021000,
+        "id": "40e127f8-deb4-45d9-ac48-c12bf80033e8"
+    },
+    {
+        "title": "Missing security monitoring",
+        "content": "The application lacks proper security monitoring and alerting mechanisms, making it difficult to detect ongoing attacks or security breaches.",
+        "userEmail": "security@monitoring.com",
+        "labels": ["Security Monitoring", "Alerting", "Breach Detection"],
+        "creationTime": 1747478975000,
+        "id": "53cf649b-2c13-4532-a9fd-d2ed20786ba6"
+    },
+    {
+        "title": "Insecure data backup procedures",
+        "content": "Data backups are not encrypted and are stored in locations accessible to unauthorized personnel, potentially exposing sensitive information.",
+        "userEmail": "backup@procedures.com",
+        "labels": ["Data Backup", "Backup Encryption", "Access Control"],
+        "creationTime": 1747077133000,
+        "id": "662bb36d-2493-400e-9954-11e2237d9a4a"
+    },
+    {
+        "title": "Vulnerable to server-side includes injection",
+        "content": "Server-side includes process user input without proper validation, allowing attackers to include arbitrary files and execute code.",
+        "userEmail": "ssi@injection.com",
+        "labels": ["Server-side Includes", "File Inclusion", "Code Execution"],
+        "creationTime": 1748157063000,
+        "id": "7e0a6ee6-cbbd-46bf-8ae3-0782a0ca101c"
+    },
+    {
+        "title": "Weak session identifier generation",
+        "content": "Session identifiers are generated using weak algorithms and have insufficient entropy, making them predictable and vulnerable to session hijacking.",
+        "userEmail": "session@identifier.com",
+        "labels": ["Session ID", "Weak Generation", "Session Hijacking"],
+        "creationTime": 1747534488000,
+        "id": "6b442333-a5c2-43a4-a611-ad3d51db639e"
+    },
+    {
+        "title": "Insecure mobile app communication",
+        "content": "The mobile application doesn't validate server certificates properly, making it vulnerable to man-in-the-middle attacks.",
+        "userEmail": "mobile@communication.com",
+        "labels": ["Mobile App", "Certificate Validation", "MITM Attacks"],
+        "creationTime": 1747572747000,
+        "id": "ff5e14bf-8fdd-452f-9d14-b462c5c5304f"
+    },
+    {
+        "title": "Missing input validation in GraphQL",
+        "content": "GraphQL endpoints don't validate query complexity or depth, making them vulnerable to denial of service attacks through expensive queries.",
+        "userEmail": "graphql@validation.com",
+        "labels": ["GraphQL Security", "Query Complexity", "DoS Prevention"],
+        "creationTime": 1747684995000,
+        "id": "f9e267dc-4f4d-40bb-928a-fca6060303c7"
+    },
+    {
+        "title": "Vulnerable to HTTP parameter pollution",
+        "content": "The application processes duplicate HTTP parameters inconsistently, leading to potential security bypasses and unexpected behavior.",
+        "userEmail": "parameter@pollution.com",
+        "labels": ["HTTP Parameter Pollution", "Parameter Processing", "Security Bypass"],
+        "creationTime": 1746935373000,
+        "id": "7284f192-0ce4-4425-b9f8-76bed956ded0"
+    },
+    {
+        "title": "Insecure OAuth token handling",
+        "content": "OAuth access tokens are stored in browser localStorage without proper protection, making them vulnerable to XSS attacks.",
+        "userEmail": "oauth@tokens.com",
+        "labels": ["OAuth Tokens", "localStorage", "XSS Vulnerability"],
+        "creationTime": 1747630899000,
+        "id": "743b6662-a7cd-4db4-916a-1db305808521"
+    },
+    {
+        "title": "Weak implementation of security questions",
+        "content": "Security questions use answers that can be easily guessed or researched through social media, providing weak authentication.",
+        "userEmail": "security@questions.com",
+        "labels": ["Security Questions", "Weak Authentication", "Social Engineering"],
+        "creationTime": 1747139979000,
+        "id": "8a1e464d-e131-4ccf-9470-db132cc97660"
+    },
+    {
+        "title": "Missing encryption for sensitive data fields",
+        "content": "Database fields containing sensitive information like SSNs and credit card numbers are stored in plain text without encryption.",
+        "userEmail": "field@encryption.com",
+        "labels": ["Field Encryption", "Sensitive Data", "Database Security"],
+        "creationTime": 1746980195000,
+        "id": "c06b3db0-0bc9-4b59-8d4e-d7c357d433cc"
+    },
+    {
+        "title": "Vulnerable to DOM-based XSS",
+        "content": "Client-side JavaScript processes URL parameters without proper sanitization, leading to DOM-based XSS vulnerabilities.",
+        "userEmail": "dom@xss.com",
+        "labels": ["DOM XSS", "Client-side", "URL Parameters"],
+        "creationTime": 1747931555000,
+        "id": "e9d0883f-3cee-40ad-91eb-adaf0673fa68"
+    },
+    {
+        "title": "Insecure API documentation access",
+        "content": "Swagger/OpenAPI documentation is publicly accessible and reveals sensitive information about internal API endpoints and data structures.",
+        "userEmail": "swagger@access.com",
+        "labels": ["API Documentation", "Swagger", "Information Disclosure"],
+        "creationTime": 1746840678000,
+        "id": "def16d7b-4328-46f3-8b6b-de15a5eb155d"
+    },
+    {
+        "title": "Weak implementation of logout functionality",
+        "content": "The logout function doesn't properly invalidate sessions on the server side, allowing session tokens to remain valid after logout.",
+        "userEmail": "logout@functionality.com",
+        "labels": ["Logout", "Session Invalidation", "Token Validation"],
+        "creationTime": 1747170251000,
+        "id": "99543a1f-6548-4018-9778-e7623aaf7071"
+    },
+    {
+        "title": "Missing rate limiting on authentication endpoints",
+        "content": "Login and registration endpoints lack rate limiting, making them vulnerable to brute force attacks and account enumeration.",
+        "userEmail": "auth@ratelimit.com",
+        "labels": ["Authentication", "Rate Limiting", "Brute Force Protection"],
+        "creationTime": 1748282441000,
+        "id": "7782e7bb-f4e2-4175-809e-5349725d7c99"
+    },
+    {
+        "title": "Insecure handling of file metadata",
+        "content": "Uploaded files retain their original metadata including EXIF data, potentially exposing sensitive information about users and their devices.",
+        "userEmail": "file@metadata.com",
+        "labels": ["File Metadata", "EXIF Data", "Privacy Protection"],
+        "creationTime": 1747376451000,
+        "id": "ad800e3b-e574-4065-ba60-8b23626ca940"
+    },
+    {
+        "title": "Vulnerable to race condition attacks",
+        "content": "Critical sections of code lack proper synchronization, allowing race conditions that could lead to data corruption or privilege escalation.",
+        "userEmail": "race@condition.com",
+        "labels": ["Race Condition", "Synchronization", "Data Corruption"],
+        "creationTime": 1746813166000,
+        "id": "ddef8748-db42-42b2-9132-a8915b8ad6cf"
+    },
+    {
+        "title": "Weak SSL/TLS configuration",
+        "content": "The server accepts weak SSL/TLS cipher suites and protocols, making encrypted connections vulnerable to cryptographic attacks.",
+        "userEmail": "ssl@configuration.com",
+        "labels": ["SSL/TLS", "Weak Ciphers", "Cryptographic Security"],
+        "creationTime": 1748835223000,
+        "id": "0ec2ee69-f92e-47f5-bf31-beb2c6c9acdd"
+    },
+    {
+        "title": "Missing authorization in WebSocket endpoints",
+        "content": "WebSocket endpoints don't perform proper authorization checks, allowing unauthorized users to access real-time data streams.",
+        "userEmail": "websocket@authorization.com",
+        "labels": ["WebSocket", "Authorization", "Real-time Data"],
+        "creationTime": 1748063346000,
+        "id": "3761658b-0f4e-4c65-bca3-2940ad34ad8d"
+    },
+    {
+        "title": "Insecure handling of environment variables",
+        "content": "Sensitive configuration including database passwords are stored in environment variables that are accessible to all processes on the system.",
+        "userEmail": "environment@variables.com",
+        "labels": ["Environment Variables", "Configuration Security", "Secrets Management"],
+        "creationTime": 1747157621000,
+        "id": "9de3f293-31ed-4bf7-8648-b30a06123c78"
+    },
+    {
+        "title": "Vulnerable to reverse proxy bypass",
+        "content": "Security controls implemented in the reverse proxy can be bypassed by direct access to backend servers, exposing unprotected endpoints.",
+        "userEmail": "proxy@bypass.com",
+        "labels": ["Reverse Proxy", "Security Bypass", "Backend Access"],
+        "creationTime": 1748254158000,
+        "id": "ee5365fc-a463-4262-9b60-caf75f24a143"
+    },
+    {
+        "title": "Weak implementation of account lockout",
+        "content": "Account lockout mechanisms can be bypassed by varying the case of usernames or using different authentication methods.",
+        "userEmail": "lockout@bypass.com",
+        "labels": ["Account Lockout", "Bypass", "Authentication"],
+        "creationTime": 1748007051000,
+        "id": "eae2a3af-4e43-4081-a876-5b43b14cfcd1"
+    },
+    {
+        "title": "Missing validation in REST API endpoints",
+        "content": "REST API endpoints accept malformed requests and process them without proper validation, leading to unexpected behavior and potential security issues.",
+        "userEmail": "rest@validation.com",
+        "labels": ["REST API", "Request Validation", "Malformed Requests"],
+        "creationTime": 1747714443000,
+        "id": "a59e68a5-1bb5-4626-b7c3-2f84970bfe70"
+    },
+    {
+        "title": "Insecure direct database access",
+        "content": "Some application functions query the database directly without using prepared statements, making them vulnerable to SQL injection attacks.",
+        "userEmail": "direct@database.com",
+        "labels": ["Direct Database Access", "Prepared Statements", "SQL Injection"],
+        "creationTime": 1748633835000,
+        "id": "9c33949c-7eda-432a-a1f1-aead94ec0fac"
+    },
+    {
+        "title": "Vulnerable to cross-site script inclusion",
+        "content": "The application loads JavaScript from external domains without integrity checks, making it vulnerable to supply chain attacks.",
+        "userEmail": "script@inclusion.com",
+        "labels": ["Cross-site Script Inclusion", "Supply Chain", "Integrity Checks"],
+        "creationTime": 1747414356000,
+        "id": "7e534922-92eb-4acd-8604-348db15c0031"
+    },
+    {
+        "title": "Weak password recovery security questions",
+        "content": "Password recovery relies on security questions with answers that can be easily guessed or found through social media research.",
+        "userEmail": "recovery@questions.com",
+        "labels": ["Password Recovery", "Security Questions", "Social Engineering"],
+        "creationTime": 1748363591000,
+        "id": "fcff7bb4-e304-4b91-a29e-08eb120619a8"
+    },
+    {
+        "title": "Missing input sanitization in search functionality",
+        "content": "Search functionality doesn't properly sanitize user input before processing, leading to potential injection attacks and data exposure.",
+        "userEmail": "search@sanitization.com",
+        "labels": ["Search Security", "Input Sanitization", "Injection Prevention"],
+        "creationTime": 1747792342000,
+        "id": "3fa4ef6a-ba1e-43db-92bb-2eefb63da753"
+    },
+    {
+        "title": "Insecure handling of user preferences",
+        "content": "User preferences are stored and processed without proper validation, allowing attackers to inject malicious data through preference settings.",
+        "userEmail": "preferences@security.com",
+        "labels": ["User Preferences", "Data Validation", "Injection"],
+        "creationTime": 1748866683000,
+        "id": "3c984480-6974-427a-8e44-a2451977e87b"
+    },
+    {
+        "title": "Vulnerable to HTTP host header attacks",
+        "content": "The application trusts the HTTP Host header for generating URLs in password reset emails, making it vulnerable to host header injection attacks.",
+        "userEmail": "host@attacks.com",
+        "labels": ["Host Header", "Password Reset", "Header Injection"],
+        "creationTime": 1747217725000,
+        "id": "e0c2f1a9-7a69-4da6-a7b7-5e2b66486cb1"
+    },
+    {
+        "title": "Weak random number generation for tokens",
+        "content": "Security tokens are generated using weak pseudo-random number generators that can be predicted, making tokens vulnerable to brute force attacks.",
+        "userEmail": "token@generation.com",
+        "labels": ["Token Generation", "Weak Randomness", "Brute Force"],
+        "creationTime": 1746979587000,
+        "id": "89801420-22d4-4664-9429-f88879865284"
+    },
+    {
+        "title": "Missing authentication on debug endpoints",
+        "content": "Debug and diagnostic endpoints are accessible without authentication, potentially exposing sensitive system information and configuration details.",
+        "userEmail": "debug@authentication.com",
+        "labels": ["Debug Endpoints", "Authentication", "Information Disclosure"],
+        "creationTime": 1746673800000,
+        "id": "3220a091-a335-491e-a5b7-b6a8f03090ac"
+    },
+    {
+        "title": "Insecure handling of user-generated content",
+        "content": "User-generated content is displayed without proper sanitization, allowing stored XSS attacks through malicious content submission.",
+        "userEmail": "content@security.com",
+        "labels": ["User-generated Content", "Stored XSS", "Content Sanitization"],
+        "creationTime": 1747945817000,
+        "id": "b215209e-ecd5-49cd-8b88-9289010da3de"
+    },
+    {
+        "title": "Vulnerable to dependency confusion attacks",
+        "content": "The application uses package managers without proper configuration, making it vulnerable to dependency confusion attacks through malicious packages.",
+        "userEmail": "dependency@confusion.com",
+        "labels": ["Dependency Confusion", "Package Management", "Supply Chain"],
+        "creationTime": 1747065683000,
+        "id": "3b22012a-dc4b-4827-ab70-03a3b635a703"
+    },
+    {
+        "title": "Missing encryption for API communications",
+        "content": "Internal API communications between services are not encrypted, allowing potential eavesdropping on sensitive data transfers.",
+        "userEmail": "api@encryption.com",
+        "labels": ["API Communication", "Encryption", "Internal Services"],
+        "creationTime": 1746443115000,
+        "id": "dd72c9cd-3296-409e-8ea7-1b33dfa0fdc3"
+    },
+    {
+        "title": "Weak implementation of content security policy",
+        "content": "The Content Security Policy is overly permissive and allows unsafe-inline, reducing protection against XSS attacks.",
+        "userEmail": "csp@implementation.com",
+        "labels": ["Content Security Policy", "CSP", "XSS Protection"],
+        "creationTime": 1746242951000,
+        "id": "5a107205-f559-4f4f-a809-9b98693efb24"
+    },
+    {
+        "title": "Insecure handling of concurrent user sessions",
+        "content": "The application doesn't properly handle multiple concurrent sessions for the same user, leading to potential data inconsistency and security issues.",
+        "userEmail": "concurrent@sessions.com",
+        "labels": ["Concurrent Sessions", "Session Management", "Data Consistency"],
+        "creationTime": 1746486683000,
+        "id": "3f7f0638-ad15-4248-9e15-be41bb799f15"
+    },
+    {
+        "title": "Vulnerable to email header injection",
+        "content": "Email sending functionality doesn't properly validate recipient addresses, allowing attackers to inject additional headers and send spam emails.",
+        "userEmail": "email@injection.com",
+        "labels": ["Email Header Injection", "Email Security", "Spam Prevention"],
+        "creationTime": 1748676588000,
+        "id": "46c06561-745d-4e65-b17e-677673a5c3fa"
+    },
+    {
+        "title": "Missing rate limiting on expensive operations",
+        "content": "Computationally expensive operations like password hashing and report generation lack rate limiting, making them vulnerable to DoS attacks.",
+        "userEmail": "expensive@operations.com",
+        "labels": ["Rate Limiting", "Expensive Operations", "DoS Prevention"],
+        "creationTime": 1746492683000,
+        "id": "1305fef0-6caa-4418-b4f3-a82de4cfe223"
+    },
+    {
+        "title": "Insecure default permissions on new accounts",
+        "content": "New user accounts are created with excessive default permissions, violating the principle of least privilege and creating security risks.",
+        "userEmail": "default@permissions.com",
+        "labels": ["Default Permissions", "Least Privilege", "Account Creation"],
+        "creationTime": 1747178743000,
+        "id": "6337e881-94fc-4017-85b7-aae167d85d53"
+    },
+    {
+        "title": "Weak validation of JWT signatures",
+        "content": "JWT tokens are accepted without proper signature validation, allowing attackers to forge tokens and bypass authentication.",
+        "userEmail": "jwt@validation.com",
+        "labels": ["JWT Validation", "Signature Verification", "Token Forgery"],
+        "creationTime": 1746105981000,
+        "id": "3f6364a6-6cc2-4cef-b782-a19087acaa93"
+    },
+    {
+        "title": "Missing security controls in microservices",
+        "content": "Microservices lack proper security controls and communicate without authentication, creating internal attack vectors.",
+        "userEmail": "microservices@security.com",
+        "labels": ["Microservices", "Security Controls", "Internal Authentication"],
+        "creationTime": 1747800774000,
+        "id": "c2e973b2-9b05-4529-a030-1de504e6eb73"
+    },
+    {
+        "title": "Vulnerable to time-based blind SQL injection",
+        "content": "Database queries are susceptible to time-based blind SQL injection attacks, allowing attackers to extract data through timing analysis.",
+        "userEmail": "blind@sql.com",
+        "labels": ["Blind SQL Injection", "Time-based Attack", "Data Extraction"],
+        "creationTime": 1748346319000,
+        "id": "8203b05d-b4fe-4df4-8068-98940e2f2c63"
+    },
+    {
+        "title": "Insecure handling of payment data",
+        "content": "Payment processing code doesn't comply with PCI DSS standards and stores sensitive payment information in violation of regulations.",
+        "userEmail": "payment@security.com",
+        "labels": ["Payment Security", "PCI DSS", "Compliance"],
+        "creationTime": 1748497203000,
+        "id": "30854a74-8254-4e22-8eca-850f65bc036f"
+    },
+    {
+        "title": "Missing protection against automated attacks",
+        "content": "The application lacks bot protection mechanisms, making it vulnerable to automated attacks like credential stuffing and data scraping.",
+        "userEmail": "bot@protection.com",
+        "labels": ["Bot Protection", "Automated Attacks", "Anti-automation"],
+        "creationTime": 1746533837000,
+        "id": "bed22dfd-69d6-4686-a65f-09b7ad64a54e"
+    },
+    {
+        "title": "Weak implementation of access logging",
+        "content": "Access logs don't include sufficient detail for security analysis and are stored without proper access controls or integrity protection.",
+        "userEmail": "access@logging.com",
+        "labels": ["Access Logging", "Log Security", "Audit Trail"],
+        "creationTime": 1748142069000,
+        "id": "0c2ae0ce-5c64-403a-a32e-6539a8c2b1db"
+    },
+    {
+        "title": "Vulnerable to cross-origin data leakage",
+        "content": "The application's CORS configuration allows cross-origin requests that could lead to sensitive data being accessible to unauthorized domains.",
+        "userEmail": "cors@leakage.com",
+        "labels": ["CORS", "Data Leakage", "Cross-origin"],
+        "creationTime": 1748557995000,
+        "id": "fd96f259-529c-4b9b-bdbd-cd14237a5b0f"
+    },
+    {
+        "title": "Insecure session storage mechanism",
+        "content": "Session data is stored in a way that makes it accessible to other applications on the same server, potentially exposing sensitive information.",
+        "userEmail": "session@storage.com",
+        "labels": ["Session Storage", "Data Isolation", "Shared Access"],
+        "creationTime": 1748282017000,
+        "id": "27a8e74e-4daf-4304-a6e9-83b358cd8b43"
+    },
+    {
+        "title": "Missing validation for uploaded file content",
+        "content": "File upload functionality only validates file extensions but not actual file content, allowing malicious files to be uploaded with safe extensions.",
+        "userEmail": "file@content.com",
+        "labels": ["File Upload", "Content Validation", "Malicious Files"],
+        "creationTime": 1746121113000,
+        "id": "c7bb60aa-5ece-4755-9bf8-28d5b49e025a"
+    },
+    {
+        "title": "Vulnerable to DNS rebinding attacks",
+        "content": "The application doesn't validate the Host header properly, making it vulnerable to DNS rebinding attacks that could bypass same-origin policy.",
+        "userEmail": "dns@rebinding.com",
+        "labels": ["DNS Rebinding", "Host Header", "Same-origin Policy"],
+        "creationTime": 1746671901000,
+        "id": "6327c875-5aa9-439b-84db-2c4eff4a126b"
+    },
+    {
+        "title": "Weak cryptographic implementation",
+        "content": "Custom cryptographic implementations contain flaws and don't follow established security practices, making encrypted data vulnerable.",
+        "userEmail": "crypto@implementation.com",
+        "labels": ["Cryptographic Implementation", "Custom Crypto", "Security Flaws"],
+        "creationTime": 1747066483000,
+        "id": "843c90fe-c5da-493f-93c5-54c5d08b2640"
+    },
+    {
+        "title": "Missing security testing in development pipeline",
+        "content": "The development pipeline lacks security testing tools like SAST and DAST, allowing vulnerable code to reach production without detection.",
+        "userEmail": "security@testing.com",
+        "labels": ["Security Testing", "SAST", "DAST"],
+        "creationTime": 1746236338000,
+        "id": "f57c8483-0a68-4c0d-abc8-146617f1198d"
+    }
+]

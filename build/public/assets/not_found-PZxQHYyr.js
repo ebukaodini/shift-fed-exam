@@ -1,0 +1,1 @@
+import{j as e}from"./app-CcI4rQ-v.js";function n(){return e.jsx(e.Fragment,{children:e.jsxs("div",{className:"container",children:[e.jsx("div",{className:"title",children:"Page not found"}),e.jsx("span",{children:"This page does not exist."})]})})}export{n as default};
